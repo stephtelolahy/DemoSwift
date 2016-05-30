@@ -22,6 +22,7 @@
 		09DC9DDA1CFCCF7300ECB869 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC9DD91CFCCF7300ECB869 /* LoginManager.swift */; };
 		09DC9DDC1CFCCFBA00ECB869 /* ModelNetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC9DDB1CFCCFBA00ECB869 /* ModelNetworkOperation.swift */; };
 		09DC9DDE1CFCD3BF00ECB869 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC9DDD1CFCD3BF00ECB869 /* Reachability.swift */; };
+		09DC9DE01CFCD67E00ECB869 /* ModelCacheOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC9DDF1CFCD67E00ECB869 /* ModelCacheOperation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		09DC9DD91CFCCF7300ECB869 /* LoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginManager.swift; path = Manager/LoginManager.swift; sourceTree = "<group>"; };
 		09DC9DDB1CFCCFBA00ECB869 /* ModelNetworkOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelNetworkOperation.swift; path = DAL/ModelNetworkOperation.swift; sourceTree = "<group>"; };
 		09DC9DDD1CFCD3BF00ECB869 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = Util/Reachability.swift; sourceTree = "<group>"; };
+		09DC9DDF1CFCD67E00ECB869 /* ModelCacheOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelCacheOperation.swift; path = DAL/ModelCacheOperation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 			children = (
 				09DC9DD41CFCCE3800ECB869 /* ServiceAtlas.swift */,
 				09DC9DDB1CFCCFBA00ECB869 /* ModelNetworkOperation.swift */,
+				09DC9DDF1CFCD67E00ECB869 /* ModelCacheOperation.swift */,
 			);
 			name = DAL;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 			files = (
 				09DC9DC31CFCAAA200ECB869 /* AppConfig.swift in Sources */,
 				09DC9DB91CFCA77300ECB869 /* SplashViewController.swift in Sources */,
+				09DC9DE01CFCD67E00ECB869 /* ModelCacheOperation.swift in Sources */,
 				09DC9DA51CFCA5A300ECB869 /* AppDelegate.swift in Sources */,
 				09DC9DD51CFCCE3800ECB869 /* ServiceAtlas.swift in Sources */,
 				09DC9DDC1CFCCFBA00ECB869 /* ModelNetworkOperation.swift in Sources */,

@@ -15,6 +15,41 @@ protocol LoginManagerDelegate {
     func loginManager(manager: LoginManager, didFailWithError error:NSError)
 }
 
-class LoginManager: AnyObject {
+class LoginManager: AnyObject, ModelNetworkOperationDelegate {
+
+
+    // MARK: - Fields
+
+    var delegate: LoginManagerDelegate?
+
+    private var networkOperation: ModelNetworkOperation?
+    private var cacheOperation: ModelCacheOperation?
+
+    // MARK: - Methods
+
+    func start(username:String, password:String) {
+
+        let parameters:NSDictionary = [User.KEY_USERNAME : username, User.KEY_PASSOWRD : password]
+        networkOperation = ModelNetworkOperation(service: .ServiceUser,parameters: parameters)
+        networkOperation?.delegate = self
+        ModelNetworkOperation.sharedQueue.addOperation(networkOperation!)
+    }
+
+    // MARK: - ModelNetworkOperationDelegate
+
+    func modelNetworkOperation(operation: ModelNetworkOperation, didSucceedWithModel model: AnyObject) {
+
+        let user: User  = model as! User
+
+        // set currentUser
+        AppConfig.currentUser = user
+
+        self.delegate?.loginManager(self, didSucceedWithUser: user)
+    }
+
+    func modelNetworkOperation(operation: ModelNetworkOperation, didFailWithError error: NSError) {
+
+        self.delegate?.loginManager(self, didFailWithError: error)
+    }
 
 }

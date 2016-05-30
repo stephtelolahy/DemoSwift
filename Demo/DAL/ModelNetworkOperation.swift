@@ -18,7 +18,7 @@ protocol ModelNetworkOperationDelegate{
 class ModelNetworkOperation: NSOperation {
 
 
-    // MARK: - NSOperationQueue
+    // MARK: - Shared queue
 
     class var sharedQueue : NSOperationQueue {
         struct Static {
@@ -33,8 +33,8 @@ class ModelNetworkOperation: NSOperation {
 
     var delegate: ModelNetworkOperationDelegate?
 
-    var service: ServiceType
-    var parameters:NSDictionary?
+    private var service: ServiceType
+    private var parameters: NSDictionary?
 
 
     // MARK: - Constructor
@@ -56,14 +56,14 @@ class ModelNetworkOperation: NSOperation {
 
     override func main() {
 
-        // Check internet connection
+        // check internet connection
 
         if Reachability.isConnectedToNetwork() == false {
             sendFailureWithError(NSError(domain:"You seems not to be connected to Internet", code:-1, userInfo:nil))
             return
         }
 
-        // Build Url
+        // define Url
         
         var stringUrl:String
         do {
@@ -106,16 +106,11 @@ class ModelNetworkOperation: NSOperation {
         request.HTTPMethod = ServiceAtlas.methodForService(self.service);
 
         var response: NSURLResponse?
-        var error: NSError?
         let data: NSData?
         do {
             data = try NSURLConnection.sendSynchronousRequest(request, returningResponse: &response)
         } catch let error1 as NSError {
-            error = error1
-            data = nil
-        }
-        if error !=  nil {
-            sendFailureWithError(error!)
+            sendFailureWithError(error1)
             return
         }
 
@@ -132,12 +127,8 @@ class ModelNetworkOperation: NSOperation {
         do {
             model = try ServiceAtlas.parseModelForService(self.service, jsonData: data!)
         } catch let error1 as NSError {
-            error = error1
-            model = nil
-        }
-        if error !=  nil {
-            sendFailureWithError(error!)
-            return;
+            sendFailureWithError(error1)
+            return
         }
 
         // store model
@@ -146,14 +137,14 @@ class ModelNetworkOperation: NSOperation {
             CacheUtil.saveModel(model!, toFile: cachePath!)
         }
 
-        // send successsave
+        // send successs
         sendSuccessWithModel(model!)
     }
+
 
     // MARK: - Delegate call
 
     private func sendSuccessWithModel(model: AnyObject) {
-
         dispatch_sync(dispatch_get_main_queue(), {
             self.delegate?.modelNetworkOperation(self, didSucceedWithModel: model)
         })
