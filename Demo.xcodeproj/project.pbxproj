@@ -15,6 +15,8 @@
 		09DC9DC51CFCAABD00ECB869 /* AppServiceAtlas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC9DC41CFCAABD00ECB869 /* AppServiceAtlas.swift */; };
 		09DC9DC81CFCAAE700ECB869 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC9DC61CFCAAE700ECB869 /* LoginViewController.swift */; };
 		09DC9DC91CFCAAE700ECB869 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09DC9DC71CFCAAE700ECB869 /* LoginViewController.xib */; };
+		09DC9DCC1CFCC25900ECB869 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC9DCA1CFCC25900ECB869 /* HomeViewController.swift */; };
+		09DC9DCD1CFCC25900ECB869 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09DC9DCB1CFCC25900ECB869 /* HomeViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		09DC9DC41CFCAABD00ECB869 /* AppServiceAtlas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppServiceAtlas.swift; path = Application/AppServiceAtlas.swift; sourceTree = "<group>"; };
 		09DC9DC61CFCAAE700ECB869 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ViewController/LoginViewController.swift; sourceTree = "<group>"; };
 		09DC9DC71CFCAAE700ECB869 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = ViewController/LoginViewController.xib; sourceTree = "<group>"; };
+		09DC9DCA1CFCC25900ECB869 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = ViewController/HomeViewController.swift; sourceTree = "<group>"; };
+		09DC9DCB1CFCC25900ECB869 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeViewController.xib; path = ViewController/HomeViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,8 @@
 		09DC9DC01CFCAA2E00ECB869 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				09DC9DCA1CFCC25900ECB869 /* HomeViewController.swift */,
+				09DC9DCB1CFCC25900ECB869 /* HomeViewController.xib */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -182,6 +188,7 @@
 				09DC9DAC1CFCA5A300ECB869 /* Assets.xcassets in Resources */,
 				09DC9DBA1CFCA77300ECB869 /* SplashViewController.xib in Resources */,
 				09DC9DC91CFCAAE700ECB869 /* LoginViewController.xib in Resources */,
+				09DC9DCD1CFCC25900ECB869 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,6 +204,7 @@
 				09DC9DA51CFCA5A300ECB869 /* AppDelegate.swift in Sources */,
 				09DC9DC81CFCAAE700ECB869 /* LoginViewController.swift in Sources */,
 				09DC9DC51CFCAABD00ECB869 /* AppServiceAtlas.swift in Sources */,
+				09DC9DCC1CFCC25900ECB869 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

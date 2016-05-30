@@ -1,5 +1,5 @@
 //
-//  LoginViewController.swift
+//  HomeViewController.swift
 //  Demo
 //
 //  Created by Telolahy on 30/05/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class HomeViewController: UIViewController {
 
     // MARK: - Lifecycle
 
@@ -23,15 +23,4 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-
-    // MARK: - Outlet
-
-    @IBAction func validateButtonTouchUpInside(sender: AnyObject) {
-
-        let homeViewController = HomeViewController()
-        self.presentViewController(homeViewController, animated: false, completion: nil)
-
-    }
-
 }

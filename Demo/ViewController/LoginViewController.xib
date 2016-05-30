@@ -33,6 +33,9 @@
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1A8-9S-xZY">
                             <rect key="frame" x="139" y="276" width="55" height="30"/>
                             <state key="normal" title="Validate"/>
+                            <connections>
+                                <action selector="validateButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="bmW-ga-0EA"/>
+                            </connections>
                         </button>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z7Y-hm-bga">
                             <rect key="frame" x="126" y="135" width="163" height="30"/>
