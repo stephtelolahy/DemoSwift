@@ -11,15 +11,23 @@
 		09DC9DAC1CFCA5A300ECB869 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09DC9DAB1CFCA5A300ECB869 /* Assets.xcassets */; };
 		09DC9DB91CFCA77300ECB869 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC9DB71CFCA77300ECB869 /* SplashViewController.swift */; };
 		09DC9DBA1CFCA77300ECB869 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09DC9DB81CFCA77300ECB869 /* SplashViewController.xib */; };
+		09DC9DC31CFCAAA200ECB869 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC9DC21CFCAAA200ECB869 /* AppConfig.swift */; };
+		09DC9DC51CFCAABD00ECB869 /* AppServiceAtlas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC9DC41CFCAABD00ECB869 /* AppServiceAtlas.swift */; };
+		09DC9DC81CFCAAE700ECB869 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC9DC61CFCAAE700ECB869 /* LoginViewController.swift */; };
+		09DC9DC91CFCAAE700ECB869 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09DC9DC71CFCAAE700ECB869 /* LoginViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		09DC9DA11CFCA5A300ECB869 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		09DC9DA41CFCA5A300ECB869 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		09DC9DA41CFCA5A300ECB869 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Application/AppDelegate.swift; sourceTree = "<group>"; };
 		09DC9DAB1CFCA5A300ECB869 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		09DC9DB01CFCA5A300ECB869 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09DC9DB71CFCA77300ECB869 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SplashViewController.swift; path = ViewController/SplashViewController.swift; sourceTree = "<group>"; };
 		09DC9DB81CFCA77300ECB869 /* SplashViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SplashViewController.xib; path = ViewController/SplashViewController.xib; sourceTree = "<group>"; };
+		09DC9DC21CFCAAA200ECB869 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppConfig.swift; path = Application/AppConfig.swift; sourceTree = "<group>"; };
+		09DC9DC41CFCAABD00ECB869 /* AppServiceAtlas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppServiceAtlas.swift; path = Application/AppServiceAtlas.swift; sourceTree = "<group>"; };
+		09DC9DC61CFCAAE700ECB869 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ViewController/LoginViewController.swift; sourceTree = "<group>"; };
+		09DC9DC71CFCAAE700ECB869 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = ViewController/LoginViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +71,10 @@
 		09DC9DB61CFCA6D600ECB869 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				09DC9DB71CFCA77300ECB869 /* SplashViewController.swift */,
-				09DC9DB81CFCA77300ECB869 /* SplashViewController.xib */,
+				09DC9DBE1CFCAA1800ECB869 /* Splash */,
+				09DC9DBF1CFCAA2300ECB869 /* Login */,
+				09DC9DC01CFCAA2E00ECB869 /* Home */,
+				09DC9DC11CFCAA4900ECB869 /* Store */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -73,8 +83,42 @@
 			isa = PBXGroup;
 			children = (
 				09DC9DA41CFCA5A300ECB869 /* AppDelegate.swift */,
+				09DC9DC21CFCAAA200ECB869 /* AppConfig.swift */,
+				09DC9DC41CFCAABD00ECB869 /* AppServiceAtlas.swift */,
 			);
 			name = Application;
+			sourceTree = "<group>";
+		};
+		09DC9DBE1CFCAA1800ECB869 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				09DC9DB71CFCA77300ECB869 /* SplashViewController.swift */,
+				09DC9DB81CFCA77300ECB869 /* SplashViewController.xib */,
+			);
+			name = Splash;
+			sourceTree = "<group>";
+		};
+		09DC9DBF1CFCAA2300ECB869 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				09DC9DC61CFCAAE700ECB869 /* LoginViewController.swift */,
+				09DC9DC71CFCAAE700ECB869 /* LoginViewController.xib */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		09DC9DC01CFCAA2E00ECB869 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		09DC9DC11CFCAA4900ECB869 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Store;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +181,7 @@
 			files = (
 				09DC9DAC1CFCA5A300ECB869 /* Assets.xcassets in Resources */,
 				09DC9DBA1CFCA77300ECB869 /* SplashViewController.xib in Resources */,
+				09DC9DC91CFCAAE700ECB869 /* LoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,8 +192,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09DC9DC31CFCAAA200ECB869 /* AppConfig.swift in Sources */,
 				09DC9DB91CFCA77300ECB869 /* SplashViewController.swift in Sources */,
 				09DC9DA51CFCA5A300ECB869 /* AppDelegate.swift in Sources */,
+				09DC9DC81CFCAAE700ECB869 /* LoginViewController.swift in Sources */,
+				09DC9DC51CFCAABD00ECB869 /* AppServiceAtlas.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
