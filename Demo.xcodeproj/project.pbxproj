@@ -8,20 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		09DC9DA51CFCA5A300ECB869 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC9DA41CFCA5A300ECB869 /* AppDelegate.swift */; };
-		09DC9DA71CFCA5A300ECB869 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC9DA61CFCA5A300ECB869 /* ViewController.swift */; };
-		09DC9DAA1CFCA5A300ECB869 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09DC9DA81CFCA5A300ECB869 /* Main.storyboard */; };
 		09DC9DAC1CFCA5A300ECB869 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09DC9DAB1CFCA5A300ECB869 /* Assets.xcassets */; };
-		09DC9DAF1CFCA5A300ECB869 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09DC9DAD1CFCA5A300ECB869 /* LaunchScreen.storyboard */; };
+		09DC9DB91CFCA77300ECB869 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC9DB71CFCA77300ECB869 /* SplashViewController.swift */; };
+		09DC9DBA1CFCA77300ECB869 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09DC9DB81CFCA77300ECB869 /* SplashViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		09DC9DA11CFCA5A300ECB869 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09DC9DA41CFCA5A300ECB869 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		09DC9DA61CFCA5A300ECB869 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		09DC9DA91CFCA5A300ECB869 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		09DC9DAB1CFCA5A300ECB869 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		09DC9DAE1CFCA5A300ECB869 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		09DC9DB01CFCA5A300ECB869 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		09DC9DB71CFCA77300ECB869 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SplashViewController.swift; path = ViewController/SplashViewController.swift; sourceTree = "<group>"; };
+		09DC9DB81CFCA77300ECB869 /* SplashViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SplashViewController.xib; path = ViewController/SplashViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +52,29 @@
 		09DC9DA31CFCA5A300ECB869 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
-				09DC9DA41CFCA5A300ECB869 /* AppDelegate.swift */,
-				09DC9DA61CFCA5A300ECB869 /* ViewController.swift */,
-				09DC9DA81CFCA5A300ECB869 /* Main.storyboard */,
+				09DC9DBB1CFCA79100ECB869 /* Application */,
+				09DC9DB61CFCA6D600ECB869 /* ViewController */,
 				09DC9DAB1CFCA5A300ECB869 /* Assets.xcassets */,
-				09DC9DAD1CFCA5A300ECB869 /* LaunchScreen.storyboard */,
 				09DC9DB01CFCA5A300ECB869 /* Info.plist */,
 			);
 			path = Demo;
+			sourceTree = "<group>";
+		};
+		09DC9DB61CFCA6D600ECB869 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				09DC9DB71CFCA77300ECB869 /* SplashViewController.swift */,
+				09DC9DB81CFCA77300ECB869 /* SplashViewController.xib */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		09DC9DBB1CFCA79100ECB869 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				09DC9DA41CFCA5A300ECB869 /* AppDelegate.swift */,
+			);
+			name = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,9 +135,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09DC9DAF1CFCA5A300ECB869 /* LaunchScreen.storyboard in Resources */,
 				09DC9DAC1CFCA5A300ECB869 /* Assets.xcassets in Resources */,
-				09DC9DAA1CFCA5A300ECB869 /* Main.storyboard in Resources */,
+				09DC9DBA1CFCA77300ECB869 /* SplashViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,31 +147,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09DC9DA71CFCA5A300ECB869 /* ViewController.swift in Sources */,
+				09DC9DB91CFCA77300ECB869 /* SplashViewController.swift in Sources */,
 				09DC9DA51CFCA5A300ECB869 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		09DC9DA81CFCA5A300ECB869 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				09DC9DA91CFCA5A300ECB869 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		09DC9DAD1CFCA5A300ECB869 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				09DC9DAE1CFCA5A300ECB869 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		09DC9DB11CFCA5A300ECB869 /* Debug */ = {
@@ -250,6 +243,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = creativegames.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -261,6 +255,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = creativegames.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
