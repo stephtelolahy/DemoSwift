@@ -99,9 +99,7 @@ class ModelNetworkOperation: NSOperation {
         let uuid = UIDevice.currentDevice().identifierForVendor!.UUIDString
         request.setValue(uuid, forHTTPHeaderField: "uuid")
 
-        let boundaryConstant = "----------V2ymHFg03esomerandomstuffhbqgZCaKO6jy";
-        let contentType = "multipart/form-data; boundary=" + boundaryConstant
-        NSURLProtocol.setProperty(contentType, forKey: "Content-Type", inRequest: request)
+        NSURLProtocol.setProperty("multipart/form-data", forKey: "Content-Type", inRequest: request)
 
         request.HTTPMethod = ServiceAtlas.methodForService(self.service);
 

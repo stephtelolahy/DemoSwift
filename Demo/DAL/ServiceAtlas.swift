@@ -31,7 +31,7 @@ class ServiceAtlas: AnyObject {
         }
 
         // concat API url with rootUrl
-        let serviceUrl = String(format: "%@%@", AppConfig.ServerRootUrl, apiUrl)
+        let serviceUrl = String(format: "%@%@", AppConfig.serverRootUrl, apiUrl)
 
         return serviceUrl
     }
