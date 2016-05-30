@@ -23,7 +23,6 @@ class LoginManager: AnyObject, ModelNetworkOperationDelegate {
     var delegate: LoginManagerDelegate?
 
     private var networkOperation: ModelNetworkOperation?
-    private var cacheOperation: ModelCacheOperation?
 
     // MARK: - Methods
 
@@ -40,10 +39,6 @@ class LoginManager: AnyObject, ModelNetworkOperationDelegate {
     func modelNetworkOperation(operation: ModelNetworkOperation, didSucceedWithModel model: AnyObject) {
 
         let user: User  = model as! User
-
-        // set currentUser
-        AppConfig.currentUser = user
-
         self.delegate?.loginManager(self, didSucceedWithUser: user)
     }
 

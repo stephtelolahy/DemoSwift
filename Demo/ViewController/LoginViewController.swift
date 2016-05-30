@@ -45,6 +45,9 @@ class LoginViewController: UIViewController, LoginManagerDelegate {
 
     func loginManager(manager: LoginManager, didSucceedWithUser user: User) {
 
+        // save current user
+        AppConfig.currentUser = user
+
         let homeViewController = HomeViewController()
         self.presentViewController(homeViewController, animated: false, completion: nil)
     }

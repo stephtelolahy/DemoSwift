@@ -8,11 +8,13 @@
 
 import UIKit
 
-class SplashViewController: UIViewController {
+class SplashViewController: UIViewController, UserStartupManagerDelegate {
 
     // MARK: - Fields
 
     var window: UIWindow?
+
+    let userStartupManager = UserStartupManager()
 
     // MARK: - Lifecycle
 
@@ -20,6 +22,9 @@ class SplashViewController: UIViewController {
         super.viewDidLoad()
 
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+
+        userStartupManager.delegate = self
+        userStartupManager.start()
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,13 +32,25 @@ class SplashViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
 
+    // MARK: - UserStartupManagerDelegate
+
+    func userStartupManagerDidSucceed(manager: UserStartupManager, user: User) {
+
+        // save current user
+        AppConfig.currentUser = user
+
+        // move to home screen
+        let homeViewController = HomeViewController()
+        self.window!.rootViewController = homeViewController
+        self.window?.makeKeyAndVisible()
+    }
+
+    func userStartupManagerDidFail(manager: UserStartupManager, error: NSError) {
+
+        // move to login screen
         let loginViewController = LoginViewController()
-
         self.window!.rootViewController = loginViewController
-
         self.window?.makeKeyAndVisible()
     }
 
