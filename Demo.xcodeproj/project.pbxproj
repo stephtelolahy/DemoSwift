@@ -12,11 +12,16 @@
 		09DC9DB91CFCA77300ECB869 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC9DB71CFCA77300ECB869 /* SplashViewController.swift */; };
 		09DC9DBA1CFCA77300ECB869 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09DC9DB81CFCA77300ECB869 /* SplashViewController.xib */; };
 		09DC9DC31CFCAAA200ECB869 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC9DC21CFCAAA200ECB869 /* AppConfig.swift */; };
-		09DC9DC51CFCAABD00ECB869 /* AppServiceAtlas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC9DC41CFCAABD00ECB869 /* AppServiceAtlas.swift */; };
 		09DC9DC81CFCAAE700ECB869 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC9DC61CFCAAE700ECB869 /* LoginViewController.swift */; };
 		09DC9DC91CFCAAE700ECB869 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09DC9DC71CFCAAE700ECB869 /* LoginViewController.xib */; };
 		09DC9DCC1CFCC25900ECB869 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC9DCA1CFCC25900ECB869 /* HomeViewController.swift */; };
 		09DC9DCD1CFCC25900ECB869 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09DC9DCB1CFCC25900ECB869 /* HomeViewController.xib */; };
+		09DC9DD01CFCC43A00ECB869 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC9DCF1CFCC43A00ECB869 /* User.swift */; };
+		09DC9DD51CFCCE3800ECB869 /* ServiceAtlas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC9DD41CFCCE3800ECB869 /* ServiceAtlas.swift */; };
+		09DC9DD81CFCCEBB00ECB869 /* CacheUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC9DD71CFCCEBB00ECB869 /* CacheUtil.swift */; };
+		09DC9DDA1CFCCF7300ECB869 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC9DD91CFCCF7300ECB869 /* LoginManager.swift */; };
+		09DC9DDC1CFCCFBA00ECB869 /* ModelNetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC9DDB1CFCCFBA00ECB869 /* ModelNetworkOperation.swift */; };
+		09DC9DDE1CFCD3BF00ECB869 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC9DDD1CFCD3BF00ECB869 /* Reachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,11 +32,16 @@
 		09DC9DB71CFCA77300ECB869 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SplashViewController.swift; path = ViewController/SplashViewController.swift; sourceTree = "<group>"; };
 		09DC9DB81CFCA77300ECB869 /* SplashViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SplashViewController.xib; path = ViewController/SplashViewController.xib; sourceTree = "<group>"; };
 		09DC9DC21CFCAAA200ECB869 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppConfig.swift; path = Application/AppConfig.swift; sourceTree = "<group>"; };
-		09DC9DC41CFCAABD00ECB869 /* AppServiceAtlas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppServiceAtlas.swift; path = Application/AppServiceAtlas.swift; sourceTree = "<group>"; };
 		09DC9DC61CFCAAE700ECB869 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ViewController/LoginViewController.swift; sourceTree = "<group>"; };
 		09DC9DC71CFCAAE700ECB869 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = ViewController/LoginViewController.xib; sourceTree = "<group>"; };
 		09DC9DCA1CFCC25900ECB869 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = ViewController/HomeViewController.swift; sourceTree = "<group>"; };
 		09DC9DCB1CFCC25900ECB869 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeViewController.xib; path = ViewController/HomeViewController.xib; sourceTree = "<group>"; };
+		09DC9DCF1CFCC43A00ECB869 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Model/User.swift; sourceTree = "<group>"; };
+		09DC9DD41CFCCE3800ECB869 /* ServiceAtlas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ServiceAtlas.swift; path = DAL/ServiceAtlas.swift; sourceTree = "<group>"; };
+		09DC9DD71CFCCEBB00ECB869 /* CacheUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CacheUtil.swift; path = Util/CacheUtil.swift; sourceTree = "<group>"; };
+		09DC9DD91CFCCF7300ECB869 /* LoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginManager.swift; path = Manager/LoginManager.swift; sourceTree = "<group>"; };
+		09DC9DDB1CFCCFBA00ECB869 /* ModelNetworkOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelNetworkOperation.swift; path = DAL/ModelNetworkOperation.swift; sourceTree = "<group>"; };
+		09DC9DDD1CFCD3BF00ECB869 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = Util/Reachability.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +76,10 @@
 			children = (
 				09DC9DBB1CFCA79100ECB869 /* Application */,
 				09DC9DB61CFCA6D600ECB869 /* ViewController */,
+				09DC9DD11CFCC7AF00ECB869 /* Manager */,
+				09DC9DCE1CFCC41500ECB869 /* Model */,
+				09DC9DD31CFCC7C800ECB869 /* DAL */,
+				09DC9DD61CFCCE9E00ECB869 /* Util */,
 				09DC9DAB1CFCA5A300ECB869 /* Assets.xcassets */,
 				09DC9DB01CFCA5A300ECB869 /* Info.plist */,
 			);
@@ -88,7 +102,6 @@
 			children = (
 				09DC9DA41CFCA5A300ECB869 /* AppDelegate.swift */,
 				09DC9DC21CFCAAA200ECB869 /* AppConfig.swift */,
-				09DC9DC41CFCAABD00ECB869 /* AppServiceAtlas.swift */,
 			);
 			name = Application;
 			sourceTree = "<group>";
@@ -125,6 +138,40 @@
 			children = (
 			);
 			name = Store;
+			sourceTree = "<group>";
+		};
+		09DC9DCE1CFCC41500ECB869 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				09DC9DCF1CFCC43A00ECB869 /* User.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		09DC9DD11CFCC7AF00ECB869 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				09DC9DD91CFCCF7300ECB869 /* LoginManager.swift */,
+			);
+			name = Manager;
+			sourceTree = "<group>";
+		};
+		09DC9DD31CFCC7C800ECB869 /* DAL */ = {
+			isa = PBXGroup;
+			children = (
+				09DC9DD41CFCCE3800ECB869 /* ServiceAtlas.swift */,
+				09DC9DDB1CFCCFBA00ECB869 /* ModelNetworkOperation.swift */,
+			);
+			name = DAL;
+			sourceTree = "<group>";
+		};
+		09DC9DD61CFCCE9E00ECB869 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				09DC9DD71CFCCEBB00ECB869 /* CacheUtil.swift */,
+				09DC9DDD1CFCD3BF00ECB869 /* Reachability.swift */,
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,9 +249,14 @@
 				09DC9DC31CFCAAA200ECB869 /* AppConfig.swift in Sources */,
 				09DC9DB91CFCA77300ECB869 /* SplashViewController.swift in Sources */,
 				09DC9DA51CFCA5A300ECB869 /* AppDelegate.swift in Sources */,
+				09DC9DD51CFCCE3800ECB869 /* ServiceAtlas.swift in Sources */,
+				09DC9DDC1CFCCFBA00ECB869 /* ModelNetworkOperation.swift in Sources */,
+				09DC9DD81CFCCEBB00ECB869 /* CacheUtil.swift in Sources */,
+				09DC9DDA1CFCCF7300ECB869 /* LoginManager.swift in Sources */,
+				09DC9DDE1CFCD3BF00ECB869 /* Reachability.swift in Sources */,
 				09DC9DC81CFCAAE700ECB869 /* LoginViewController.swift in Sources */,
-				09DC9DC51CFCAABD00ECB869 /* AppServiceAtlas.swift in Sources */,
 				09DC9DCC1CFCC25900ECB869 /* HomeViewController.swift in Sources */,
+				09DC9DD01CFCC43A00ECB869 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +389,7 @@
 				09DC9DB51CFCA5A300ECB869 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

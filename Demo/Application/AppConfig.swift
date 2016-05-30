@@ -10,4 +10,7 @@ import UIKit
 
 class AppConfig: AnyObject {
 
+    static var ServerRootUrl = "http://176.31.187.49:8888/boky"
+
+    static var currentUser: User?
 }
