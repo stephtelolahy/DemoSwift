@@ -50,7 +50,6 @@ class UserStartupManager: AnyObject, ModelCacheOperationDelegate, ModelNetworkOp
 
     func modelCacheOperation(operation: ModelCacheOperation, didFailWithError error: NSError) {
 
-        // Call no startup user
         self.delegate?.userStartupManagerDidFail(self, error: NSError(domain:"No cached user", code:-1, userInfo:nil))
     }
 

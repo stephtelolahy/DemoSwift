@@ -48,4 +48,13 @@ class CacheUtil: AnyObject {
         return object!;
     }
 
+    static func deleteFile(filePath: String)->Bool{
+        do {
+            try NSFileManager.defaultManager().removeItemAtPath(filePath)
+            return true
+        } catch _ {
+            return false
+        }
+    }
+
 }

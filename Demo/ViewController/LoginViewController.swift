@@ -8,8 +8,12 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, LoginManagerDelegate {
+class LoginViewController: BaseViewController, LoginManagerDelegate {
 
+
+    // MARK: - Fields
+
+    var window: UIWindow?
 
     // MARK: - Outlet
 
@@ -22,7 +26,7 @@ class LoginViewController: UIViewController, LoginManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,6 +42,8 @@ class LoginViewController: UIViewController, LoginManagerDelegate {
         let loginManager = LoginManager()
         loginManager.delegate = self
         loginManager.start(usernameTextField.text!,  password: passwordTextField.text!)
+
+        self.showLoadingView()
     }
 
 
@@ -45,14 +51,20 @@ class LoginViewController: UIViewController, LoginManagerDelegate {
 
     func loginManager(manager: LoginManager, didSucceedWithUser user: User) {
 
+        self.hideLoadingView()
+
         // save current user
         AppConfig.currentUser = user
 
+        // move to home screen
         let homeViewController = HomeViewController()
-        self.presentViewController(homeViewController, animated: false, completion: nil)
+        self.window!.rootViewController = homeViewController
+        self.window?.makeKeyAndVisible()
     }
 
     func loginManager(manager: LoginManager, didFailWithError error: NSError) {
+
+        self.hideLoadingView()
 
         let alertController = UIAlertController(title: "Oops", message:
             error.description, preferredStyle: UIAlertControllerStyle.Alert)
@@ -61,5 +73,5 @@ class LoginViewController: UIViewController, LoginManagerDelegate {
         self.presentViewController(alertController, animated: true, completion: nil)
 
     }
-
+    
 }

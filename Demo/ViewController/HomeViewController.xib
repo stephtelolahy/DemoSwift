@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Demo" customModuleProvider="target">
             <connections>
+                <outlet property="titleBarButtonItem" destination="sUr-3A-slc" id="Hd6-Ps-kfa"/>
+                <outlet property="userBarButtonItem" destination="Ll6-aR-eBK" id="ysr-Dg-Ats"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,10 +23,19 @@
                         <constraint firstAttribute="height" constant="44" id="AwO-fG-KnU"/>
                     </constraints>
                     <items>
-                        <barButtonItem title="Stores" id="mzv-tJ-fcY"/>
+                        <barButtonItem title="Stores" id="mzv-tJ-fcY">
+                            <connections>
+                                <action selector="storesBarButtonItemAction:" destination="-1" id="DZg-zP-vNT"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="6m0-Hb-JSP"/>
                         <barButtonItem title="Title" id="sUr-3A-slc"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="kT7-tP-unw"/>
+                        <barButtonItem title="User" id="Ll6-aR-eBK">
+                            <connections>
+                                <action selector="userBarButtonItemAction:" destination="-1" id="w5b-JV-XSb"/>
+                            </connections>
+                        </barButtonItem>
                     </items>
                     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="barTintColor" red="0.0" green="0.80000000000000004" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
