@@ -12,8 +12,8 @@ class User: NSObject, NSCoding {
 
     // MARK: Constants
 
-    static let KEY_USERNAME = "username"
-    static let KEY_PASSOWRD = "password"
+    static let KEY_USER_NAME = "username"
+    static let KEY_USER_PASSOWRD = "password"
 
 
     // MARK: - Fields
@@ -26,29 +26,29 @@ class User: NSObject, NSCoding {
     required convenience init?(coder decoder: NSCoder) {
         self.init()
 
-        self.username = decoder.decodeObjectForKey(User.KEY_USERNAME) as! String
-        self.password = decoder.decodeObjectForKey(User.KEY_PASSOWRD) as! String
+        self.username = decoder.decodeObjectForKey(User.KEY_USER_NAME) as! String
+        self.password = decoder.decodeObjectForKey(User.KEY_USER_PASSOWRD) as! String
     }
 
     func encodeWithCoder(coder: NSCoder) {
 
-        coder.encodeObject(self.username, forKey: User.KEY_USERNAME)
-        coder.encodeObject(self.password, forKey: User.KEY_PASSOWRD)
+        coder.encodeObject(self.username, forKey: User.KEY_USER_NAME)
+        coder.encodeObject(self.password, forKey: User.KEY_USER_PASSOWRD)
     }
 
     // MARK: - JSON Parsing
 
     static func parseUserFromJsonData(jsonData: NSData) throws -> User {
 
-        let jsonDictionary: NSDictionary = (try! NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers)) as! NSDictionary
+        let jsonDictionary = (try! NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers)) as! NSDictionary
 
         let user = User()
 
-        if let username: AnyObject = jsonDictionary[User.KEY_USERNAME] {
+        if let username: AnyObject = jsonDictionary[User.KEY_USER_NAME] {
             user.username = username as! String
         }
 
-        if let password: AnyObject = jsonDictionary[User.KEY_PASSOWRD] {
+        if let password: AnyObject = jsonDictionary[User.KEY_USER_PASSOWRD] {
             user.password = password as! String
         }
 

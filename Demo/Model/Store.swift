@@ -43,7 +43,7 @@ class Store: NSObject, NSCoding {
 
     static func parseStoreFromJsonDictionary(jsonDictionary: NSDictionary) throws -> Store {
 
-        let store:Store = Store()
+        let store = Store()
 
         if let id: Int = jsonDictionary[Store.KEY_STORE_ID] as? Int {
             store.id = id
@@ -52,6 +52,7 @@ class Store: NSObject, NSCoding {
         if let name: String = jsonDictionary[Store.KEY_STORE_NAME] as? String {
             store.name = name
         }
+        
         if let flagUrl: String = jsonDictionary[Store.KEY_STORE_FLAG_URL] as? String {
             store.flagUrl = flagUrl
         }
@@ -61,7 +62,7 @@ class Store: NSObject, NSCoding {
 
     static func parseStoresFromJsonData(jsonData: NSData) throws -> Array<Store> {
 
-        let jsonArray: NSArray = (try! NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers)) as! NSArray
+        let jsonArray = (try! NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers)) as! NSArray
 
         var stores = Array<Store>()
 

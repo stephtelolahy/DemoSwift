@@ -28,7 +28,7 @@ class LoginManager: AnyObject, ModelNetworkOperationDelegate {
 
     func start(username:String, password:String) {
 
-        let parameters:NSDictionary = [User.KEY_USERNAME : username, User.KEY_PASSOWRD : password]
+        let parameters:NSDictionary = [User.KEY_USER_NAME : username, User.KEY_USER_PASSOWRD : password]
         networkOperation = ModelNetworkOperation(service: .ServiceUser,parameters: parameters)
         networkOperation?.delegate = self
         ModelNetworkOperation.sharedQueue.addOperation(networkOperation!)

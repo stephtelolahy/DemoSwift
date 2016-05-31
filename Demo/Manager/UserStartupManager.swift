@@ -42,7 +42,7 @@ class UserStartupManager: AnyObject, ModelCacheOperationDelegate, ModelNetworkOp
 
         self.cachedUser = model as? User
 
-        let parameters:NSDictionary = [User.KEY_USERNAME : self.cachedUser!.username, User.KEY_PASSOWRD : self.cachedUser!.password]
+        let parameters:NSDictionary = [User.KEY_USER_NAME : self.cachedUser!.username, User.KEY_USER_PASSOWRD : self.cachedUser!.password]
         networkOperation = ModelNetworkOperation(service: .ServiceUser,parameters: parameters)
         networkOperation?.delegate = self
         ModelNetworkOperation.sharedQueue.addOperation(networkOperation!)
