@@ -16,6 +16,7 @@ class Category: NSObject, NSCoding {
     static let KEY_CATEGORY_ID = "idcategorie"
     static let KEY_CATEGORY_NAME = "libelle"
     static let KEY_CATEGORY_THUMBS_URL = "vignette"
+    static let KEY_CATEGORY_STORE_ID = "idstore"
     
 
     // MARK: - Fields

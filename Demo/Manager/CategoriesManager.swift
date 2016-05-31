@@ -35,7 +35,7 @@ class CategoriesManager: AnyObject, ModelNetworkOperationDelegate, ModelCacheOpe
 
         self.storeId = storeId
 
-        let parameters: NSDictionary = ["idstore" : self.storeId!]
+        let parameters: NSDictionary = [Category.KEY_CATEGORY_STORE_ID : self.storeId!]
         networkOperation = ModelNetworkOperation(service: .ServiceCategories, parameters: parameters)
         networkOperation?.delegate = self
         ModelNetworkOperation.sharedQueue.addOperation(networkOperation!)
@@ -54,7 +54,7 @@ class CategoriesManager: AnyObject, ModelNetworkOperationDelegate, ModelCacheOpe
 
         self.networkError = error
 
-        let parameters: NSDictionary = ["idstore" : self.storeId!]
+        let parameters: NSDictionary = [Category.KEY_CATEGORY_STORE_ID : self.storeId!]
         cacheOperation = ModelCacheOperation(service: .ServiceCategories, parameters: parameters)
         cacheOperation?.delegate = self
         ModelCacheOperation.sharedQueue.addOperation(cacheOperation!)

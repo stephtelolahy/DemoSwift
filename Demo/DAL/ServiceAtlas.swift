@@ -69,7 +69,9 @@ class ServiceAtlas: AnyObject {
             return CacheUtil.makePathLink("commonData", fileName: "stores")
 
         case .ServiceCategories:
-            return CacheUtil.makePathLink("commonData", fileName: "categories")
+            let storeId: Int = parameters![Category.KEY_CATEGORY_STORE_ID] as! Int
+            let fileName = String(format: "categories-%d", storeId)
+            return CacheUtil.makePathLink("commonData", fileName: fileName)
 
         default:
             // return nil if you don't want to cache model
