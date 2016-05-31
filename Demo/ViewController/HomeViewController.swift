@@ -28,7 +28,7 @@ class HomeViewController: UIViewController {
 
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
 
-        self.titleBarButtonItem.title = "Madagascar"
+        self.titleBarButtonItem.title = AppConfig.availableStores![0].name
         self.userBarButtonItem.title = AppConfig.currentUser!.username
     }
 

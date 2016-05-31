@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		092ACCF61CFD45C400F629A0 /* StoresManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092ACCF51CFD45C400F629A0 /* StoresManager.swift */; };
+		092ACCF81CFD461600F629A0 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092ACCF71CFD461600F629A0 /* Store.swift */; };
 		0965603C1CFCF73C0059D5E2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0965603B1CFCF73C0059D5E2 /* BaseViewController.swift */; };
 		09DC9DA51CFCA5A300ECB869 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC9DA41CFCA5A300ECB869 /* AppDelegate.swift */; };
 		09DC9DAC1CFCA5A300ECB869 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09DC9DAB1CFCA5A300ECB869 /* Assets.xcassets */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		092ACCF51CFD45C400F629A0 /* StoresManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoresManager.swift; path = Manager/StoresManager.swift; sourceTree = "<group>"; };
+		092ACCF71CFD461600F629A0 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Store.swift; path = Model/Store.swift; sourceTree = "<group>"; };
 		0965603B1CFCF73C0059D5E2 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = ViewController/BaseViewController.swift; sourceTree = "<group>"; };
 		09DC9DA11CFCA5A300ECB869 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09DC9DA41CFCA5A300ECB869 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Application/AppDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				09DC9DCF1CFCC43A00ECB869 /* User.swift */,
+				092ACCF71CFD461600F629A0 /* Store.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -160,6 +165,7 @@
 			children = (
 				09DC9DD91CFCCF7300ECB869 /* LoginManager.swift */,
 				09DC9DE11CFCE60F00ECB869 /* UserStartupManager.swift */,
+				092ACCF51CFD45C400F629A0 /* StoresManager.swift */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -256,7 +262,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				09DC9DC31CFCAAA200ECB869 /* AppConfig.swift in Sources */,
+				092ACCF61CFD45C400F629A0 /* StoresManager.swift in Sources */,
 				09DC9DB91CFCA77300ECB869 /* SplashViewController.swift in Sources */,
+				092ACCF81CFD461600F629A0 /* Store.swift in Sources */,
 				09DC9DE21CFCE60F00ECB869 /* UserStartupManager.swift in Sources */,
 				09DC9DE01CFCD67E00ECB869 /* ModelCacheOperation.swift in Sources */,
 				09DC9DA51CFCA5A300ECB869 /* AppDelegate.swift in Sources */,

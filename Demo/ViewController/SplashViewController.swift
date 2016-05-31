@@ -8,13 +8,14 @@
 
 import UIKit
 
-class SplashViewController: UIViewController, UserStartupManagerDelegate {
+class SplashViewController: BaseViewController, StoresManagerDelegate, UserStartupManagerDelegate {
 
     // MARK: - Fields
 
     var window: UIWindow?
 
-    let userStartupManager = UserStartupManager()
+    var storesManager: StoresManager?
+    var userStartupManager: UserStartupManager?
 
     // MARK: - Lifecycle
 
@@ -23,13 +24,34 @@ class SplashViewController: UIViewController, UserStartupManagerDelegate {
 
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
 
-        userStartupManager.delegate = self
-        userStartupManager.start()
+        // fetch stores
+        storesManager = StoresManager()
+        storesManager?.delegate = self
+        storesManager?.start()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+
+    // MARK: - StoresManagerDelegate
+
+    func storesManager(manager: StoresManager, didSucceedWithStores stores: Array<Store>) {
+
+        // save available stores
+        AppConfig.availableStores = stores
+
+        // fetch user
+        userStartupManager =  UserStartupManager()
+        userStartupManager!.delegate = self
+        userStartupManager?.start()
+    }
+
+    func storesManager(manager: StoresManager, didFailWithError error: NSError) {
+
+        showError(error.description)
     }
 
 

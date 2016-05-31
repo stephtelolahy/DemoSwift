@@ -22,7 +22,7 @@ class UserStartupManager: AnyObject, ModelCacheOperationDelegate, ModelNetworkOp
 
     private var cacheOperation: ModelCacheOperation?
     private var networkOperation: ModelNetworkOperation?
-
+    
     private var cachedUser:User?
 
 

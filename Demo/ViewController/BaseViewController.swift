@@ -10,6 +10,14 @@ import UIKit
 
 class BaseViewController: UIViewController {
 
+    func showError(errorMessage: String) {
+
+        let alertController = UIAlertController(title: "Oops", message:
+            errorMessage, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
 
     func showLoadingView() {
 

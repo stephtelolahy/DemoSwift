@@ -12,6 +12,7 @@ import UIKit
 enum ServiceType {
 
     case ServiceUser
+    case ServiceStores
 }
 
 class ServiceAtlas: AnyObject {
@@ -24,6 +25,10 @@ class ServiceAtlas: AnyObject {
 
         case .ServiceUser:
             apiUrl = "/api/v1/compte/1/login.json"
+            break
+
+        case .ServiceStores:
+            apiUrl = "/api/v1/store.json"
             break
 
         default:
@@ -55,6 +60,9 @@ class ServiceAtlas: AnyObject {
         case .ServiceUser:
             return CacheUtil.makePathLink("userData", fileName: "user")
 
+        case .ServiceStores:
+            return CacheUtil.makePathLink("commonData", fileName: "stores")
+
         default:
             // return nil to not save model
             return nil
@@ -66,6 +74,9 @@ class ServiceAtlas: AnyObject {
 
         case .ServiceUser:
             return try User.parseUserFromJsonData(jsonData)
+
+        case .ServiceStores:
+            return try Store.parseStoresFromJsonData(jsonData)
 
         default:
             if let jsonDictionary: NSDictionary = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary {
