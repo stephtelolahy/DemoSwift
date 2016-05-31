@@ -42,7 +42,7 @@ class StoresManager: AnyObject, ModelNetworkOperationDelegate, ModelCacheOperati
 
     func modelNetworkOperation(operation: ModelNetworkOperation, didSucceedWithModel model: AnyObject) {
 
-        let stores: Array<Store>  = model as! Array<Store>
+        let stores = model as! Array<Store>
         self.delegate?.storesManager(self, didSucceedWithStores: stores)
     }
 
@@ -60,7 +60,7 @@ class StoresManager: AnyObject, ModelNetworkOperationDelegate, ModelCacheOperati
 
     func modelCacheOperation(operation: ModelCacheOperation, didSucceedWithModel model: AnyObject) {
 
-        let stores: Array<Store>  = model as! Array<Store>
+        let stores = model as! Array<Store>
         self.delegate?.storesManager(self, didSucceedWithStores: stores)
     }
 

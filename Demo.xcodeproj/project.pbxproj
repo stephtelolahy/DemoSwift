@@ -11,6 +11,7 @@
 		092ACCF81CFD461600F629A0 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092ACCF71CFD461600F629A0 /* Store.swift */; };
 		0965603C1CFCF73C0059D5E2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0965603B1CFCF73C0059D5E2 /* BaseViewController.swift */; };
 		09B7B5411CFE18650005E274 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B7B5401CFE18650005E274 /* Category.swift */; };
+		09B7B5431CFE23180005E274 /* CategoriesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B7B5421CFE23180005E274 /* CategoriesManager.swift */; };
 		09DC9DA51CFCA5A300ECB869 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC9DA41CFCA5A300ECB869 /* AppDelegate.swift */; };
 		09DC9DAC1CFCA5A300ECB869 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09DC9DAB1CFCA5A300ECB869 /* Assets.xcassets */; };
 		09DC9DB91CFCA77300ECB869 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC9DB71CFCA77300ECB869 /* SplashViewController.swift */; };
@@ -35,6 +36,7 @@
 		092ACCF71CFD461600F629A0 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Store.swift; path = Model/Store.swift; sourceTree = "<group>"; };
 		0965603B1CFCF73C0059D5E2 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = ViewController/BaseViewController.swift; sourceTree = "<group>"; };
 		09B7B5401CFE18650005E274 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Category.swift; path = Model/Category.swift; sourceTree = "<group>"; };
+		09B7B5421CFE23180005E274 /* CategoriesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoriesManager.swift; path = Manager/CategoriesManager.swift; sourceTree = "<group>"; };
 		09DC9DA11CFCA5A300ECB869 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09DC9DA41CFCA5A300ECB869 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Application/AppDelegate.swift; sourceTree = "<group>"; };
 		09DC9DAB1CFCA5A300ECB869 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				09DC9DD91CFCCF7300ECB869 /* LoginManager.swift */,
 				09DC9DE11CFCE60F00ECB869 /* UserStartupManager.swift */,
 				092ACCF51CFD45C400F629A0 /* StoresManager.swift */,
+				09B7B5421CFE23180005E274 /* CategoriesManager.swift */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				09DC9DD51CFCCE3800ECB869 /* ServiceAtlas.swift in Sources */,
 				09DC9DDC1CFCCFBA00ECB869 /* ModelNetworkOperation.swift in Sources */,
 				09DC9DD81CFCCEBB00ECB869 /* CacheUtil.swift in Sources */,
+				09B7B5431CFE23180005E274 /* CategoriesManager.swift in Sources */,
 				09B7B5411CFE18650005E274 /* Category.swift in Sources */,
 				09DC9DDA1CFCCF7300ECB869 /* LoginManager.swift in Sources */,
 				09DC9DDE1CFCD3BF00ECB869 /* Reachability.swift in Sources */,

@@ -38,7 +38,7 @@ class LoginManager: AnyObject, ModelNetworkOperationDelegate {
 
     func modelNetworkOperation(operation: ModelNetworkOperation, didSucceedWithModel model: AnyObject) {
 
-        let user: User  = model as! User
+        let user = model as! User
         self.delegate?.loginManager(self, didSucceedWithUser: user)
     }
 

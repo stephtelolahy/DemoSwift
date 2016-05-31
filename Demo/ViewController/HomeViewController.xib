@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Demo" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="fd4-zC-gQb" id="NnD-OC-9fv"/>
                 <outlet property="titleBarButtonItem" destination="sUr-3A-slc" id="Hd6-Ps-kfa"/>
                 <outlet property="userBarButtonItem" destination="Ll6-aR-eBK" id="ysr-Dg-Ats"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -56,6 +57,7 @@
                 <constraint firstAttribute="trailing" secondItem="fd4-zC-gQb" secondAttribute="trailing" id="zGn-if-e9R"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="-15" y="225"/>
         </view>
     </objects>
 </document>

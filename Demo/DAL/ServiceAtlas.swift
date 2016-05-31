@@ -13,6 +13,7 @@ enum ServiceType {
 
     case ServiceUser
     case ServiceStores
+    case ServiceCategories
 }
 
 class ServiceAtlas: AnyObject {
@@ -29,6 +30,10 @@ class ServiceAtlas: AnyObject {
 
         case .ServiceStores:
             apiUrl = "/api/v1/store.json"
+            break
+
+        case .ServiceCategories:
+            apiUrl = "/api/v1/categorie.json"
             break
 
         default:
@@ -63,6 +68,9 @@ class ServiceAtlas: AnyObject {
         case .ServiceStores:
             return CacheUtil.makePathLink("commonData", fileName: "stores")
 
+        case .ServiceCategories:
+            return CacheUtil.makePathLink("commonData", fileName: "categories")
+
         default:
             // return nil if you don't want to cache model
             return nil
@@ -77,6 +85,9 @@ class ServiceAtlas: AnyObject {
 
         case .ServiceStores:
             return try Store.parseStoresFromJsonData(jsonData)
+
+        case .ServiceCategories:
+            return try Category.parseCategoriesFromJsonData(jsonData)
 
         default:
             throw NSError(domain:"Unsupported service: \(service)", code:-1, userInfo:nil)
