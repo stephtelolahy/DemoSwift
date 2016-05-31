@@ -64,7 +64,7 @@ class ServiceAtlas: AnyObject {
             return CacheUtil.makePathLink("commonData", fileName: "stores")
 
         default:
-            // return nil to not save model
+            // return nil if you don't want to cache model
             return nil
         }
     }
@@ -79,9 +79,6 @@ class ServiceAtlas: AnyObject {
             return try Store.parseStoresFromJsonData(jsonData)
 
         default:
-            if let jsonDictionary: NSDictionary = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary {
-                return jsonDictionary
-            }
             throw NSError(domain:"Unsupported service: \(service)", code:-1, userInfo:nil)
         }
     }

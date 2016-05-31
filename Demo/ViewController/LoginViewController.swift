@@ -15,6 +15,9 @@ class LoginViewController: BaseViewController, LoginManagerDelegate {
 
     var window: UIWindow?
 
+    var loginManager: LoginManager?
+
+    
     // MARK: - Outlet
 
     @IBOutlet weak var usernameTextField: UITextField!
@@ -39,9 +42,9 @@ class LoginViewController: BaseViewController, LoginManagerDelegate {
 
     @IBAction func validateButtonTouchUpInside(sender: AnyObject) {
 
-        let loginManager = LoginManager()
-        loginManager.delegate = self
-        loginManager.start(usernameTextField.text!,  password: passwordTextField.text!)
+        loginManager = LoginManager()
+        loginManager!.delegate = self
+        loginManager?.start(usernameTextField.text!,  password: passwordTextField.text!)
 
         self.showLoadingView()
     }
