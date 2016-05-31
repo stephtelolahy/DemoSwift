@@ -42,6 +42,7 @@ class SplashViewController: BaseViewController, StoresManagerDelegate, UserStart
 
         // save available stores
         AppConfig.availableStores = stores
+        AppConfig.currentStore = stores[0]
 
         // fetch user
         userStartupManager =  UserStartupManager()

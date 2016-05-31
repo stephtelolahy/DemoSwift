@@ -8,7 +8,20 @@
 
 import UIKit
 
+
+protocol StoresViewControllerDelegate {
+
+    func storesViewController(viewController: StoresViewController, didSelectStore:Store)
+}
+
+
+
 class StoresViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
+
+
+    // MARK: - Field
+
+    var delegate: StoresViewControllerDelegate?
 
 
     // MARK: - Outlet
@@ -23,6 +36,8 @@ class StoresViewController: BaseViewController, UITableViewDataSource, UITableVi
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.reloadData()
+
+        self.title = "Stores"
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,7 +67,7 @@ class StoresViewController: BaseViewController, UITableViewDataSource, UITableVi
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
-        print("select item at index \(indexPath.item)")
+        self.delegate?.storesViewController(self, didSelectStore: AppConfig.availableStores![indexPath.item])
     }
 
     

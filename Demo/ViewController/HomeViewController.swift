@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: BaseViewController, CategoriesManagerDelegate, UITableViewDataSource, UITableViewDelegate, UIPopoverPresentationControllerDelegate {
+class HomeViewController: BaseViewController, CategoriesManagerDelegate, UITableViewDataSource, UITableViewDelegate, StoresViewControllerDelegate {
 
 
     // MARK: - Fields
@@ -21,8 +21,6 @@ class HomeViewController: BaseViewController, CategoriesManagerDelegate, UITable
 
     // MARK: - Outlet
 
-//    @IBOutlet weak var titleBarButtonItem: UIBarButtonItem!
-//    @IBOutlet weak var userBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
 
 
@@ -33,8 +31,9 @@ class HomeViewController: BaseViewController, CategoriesManagerDelegate, UITable
 
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
 
-        self.title = AppConfig.currentStore().name
-//        self.userBarButtonItem.title = AppConfig.currentUser!.username
+        self.navigationItem.setLeftBarButtonItem(UIBarButtonItem(title: "Stores", style: UIBarButtonItemStyle.Plain, target: self, action: "storesBarButtonItemAction:"), animated: true)
+
+        self.navigationItem.setRightBarButtonItem(UIBarButtonItem(title: "Account", style: UIBarButtonItemStyle.Plain, target: self, action: "accountBarButtonItemAction:"), animated: true)
 
         self.tableView.dataSource = self
         self.tableView.delegate = self
@@ -48,11 +47,7 @@ class HomeViewController: BaseViewController, CategoriesManagerDelegate, UITable
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
 
-        categoriesManager = CategoriesManager()
-        categoriesManager!.delegate = self
-        categoriesManager?.start(AppConfig.currentStore().id)
-
-        showLoadingView()
+        reload()
     }
 
 
@@ -62,23 +57,12 @@ class HomeViewController: BaseViewController, CategoriesManagerDelegate, UITable
 
         let storesViewController = StoresViewController()
 
-        if UIDevice.currentDevice().userInterfaceIdiom == .Phone
-        {
-            self.navigationController!.pushViewController(storesViewController, animated: true)
-        }
-        else
-        {
-            storesViewController.modalPresentationStyle = .Popover
-            storesViewController.preferredContentSize = CGSizeMake(300,450)
-            let popoverMenuViewController = storesViewController.popoverPresentationController
-            popoverMenuViewController?.permittedArrowDirections = .Any
-            popoverMenuViewController?.delegate = self
-            storesViewController.popoverPresentationController?.barButtonItem = sender as? UIBarButtonItem
-            self.presentViewController(storesViewController, animated: true, completion: nil)
-        }
+        storesViewController.delegate = self
+        
+        self.navigationController!.pushViewController(storesViewController, animated: true)
     }
 
-    @IBAction func userBarButtonItemAction(sender: AnyObject) {
+    @IBAction func accountBarButtonItemAction(sender: AnyObject) {
 
         let alert = UIAlertController(title: "Account", message: "You are logged as \(AppConfig.currentUser!.username)", preferredStyle: UIAlertControllerStyle.Alert)
 
@@ -135,11 +119,23 @@ class HomeViewController: BaseViewController, CategoriesManagerDelegate, UITable
     }
 
 
-    // MARK:- UITableViewDelegate
+    // MARK: - UITableViewDelegate
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
         print("select item at index \(indexPath.item)")
+    }
+
+
+    // MARK: - StoresViewControllerDelegate
+
+    func storesViewController(viewController: StoresViewController, didSelectStore: Store) {
+
+        AppConfig.currentStore = didSelectStore
+
+        reload()
+
+        self.navigationController?.popViewControllerAnimated(true)
     }
 
 
@@ -157,6 +153,21 @@ class HomeViewController: BaseViewController, CategoriesManagerDelegate, UITable
         let loginViewController = LoginViewController()
         self.window!.rootViewController = loginViewController
         self.window?.makeKeyAndVisible()
+    }
+
+    private func reload() {
+
+        self.title = AppConfig.currentStore!.name
+
+        categoriesManager = CategoriesManager()
+        categoriesManager!.delegate = self
+        categoriesManager?.start(AppConfig.currentStore!.id)
+
+
+        if (self.categories == nil) {
+            showLoadingView()
+        }
+
     }
 
 }
