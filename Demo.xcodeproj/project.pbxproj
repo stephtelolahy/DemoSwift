@@ -12,6 +12,8 @@
 		0965603C1CFCF73C0059D5E2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0965603B1CFCF73C0059D5E2 /* BaseViewController.swift */; };
 		09B7B5411CFE18650005E274 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B7B5401CFE18650005E274 /* Category.swift */; };
 		09B7B5431CFE23180005E274 /* CategoriesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B7B5421CFE23180005E274 /* CategoriesManager.swift */; };
+		09B7B5461CFE37AF0005E274 /* StoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B7B5441CFE37AF0005E274 /* StoresViewController.swift */; };
+		09B7B5471CFE37AF0005E274 /* StoresViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09B7B5451CFE37AF0005E274 /* StoresViewController.xib */; };
 		09DC9DA51CFCA5A300ECB869 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC9DA41CFCA5A300ECB869 /* AppDelegate.swift */; };
 		09DC9DAC1CFCA5A300ECB869 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09DC9DAB1CFCA5A300ECB869 /* Assets.xcassets */; };
 		09DC9DB91CFCA77300ECB869 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DC9DB71CFCA77300ECB869 /* SplashViewController.swift */; };
@@ -37,6 +39,8 @@
 		0965603B1CFCF73C0059D5E2 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = ViewController/BaseViewController.swift; sourceTree = "<group>"; };
 		09B7B5401CFE18650005E274 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Category.swift; path = Model/Category.swift; sourceTree = "<group>"; };
 		09B7B5421CFE23180005E274 /* CategoriesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoriesManager.swift; path = Manager/CategoriesManager.swift; sourceTree = "<group>"; };
+		09B7B5441CFE37AF0005E274 /* StoresViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoresViewController.swift; path = ViewController/StoresViewController.swift; sourceTree = "<group>"; };
+		09B7B5451CFE37AF0005E274 /* StoresViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StoresViewController.xib; path = ViewController/StoresViewController.xib; sourceTree = "<group>"; };
 		09DC9DA11CFCA5A300ECB869 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09DC9DA41CFCA5A300ECB869 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Application/AppDelegate.swift; sourceTree = "<group>"; };
 		09DC9DAB1CFCA5A300ECB869 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -107,7 +111,7 @@
 				09DC9DBE1CFCAA1800ECB869 /* Splash */,
 				09DC9DBF1CFCAA2300ECB869 /* Login */,
 				09DC9DC01CFCAA2E00ECB869 /* Home */,
-				09DC9DC11CFCAA4900ECB869 /* Store */,
+				09DC9DC11CFCAA4900ECB869 /* Stores */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -148,11 +152,13 @@
 			name = Home;
 			sourceTree = "<group>";
 		};
-		09DC9DC11CFCAA4900ECB869 /* Store */ = {
+		09DC9DC11CFCAA4900ECB869 /* Stores */ = {
 			isa = PBXGroup;
 			children = (
+				09B7B5441CFE37AF0005E274 /* StoresViewController.swift */,
+				09B7B5451CFE37AF0005E274 /* StoresViewController.xib */,
 			);
-			name = Store;
+			name = Stores;
 			sourceTree = "<group>";
 		};
 		09DC9DCE1CFCC41500ECB869 /* Model */ = {
@@ -255,6 +261,7 @@
 			files = (
 				09DC9DAC1CFCA5A300ECB869 /* Assets.xcassets in Resources */,
 				09DC9DBA1CFCA77300ECB869 /* SplashViewController.xib in Resources */,
+				09B7B5471CFE37AF0005E274 /* StoresViewController.xib in Resources */,
 				09DC9DC91CFCAAE700ECB869 /* LoginViewController.xib in Resources */,
 				09DC9DCD1CFCC25900ECB869 /* HomeViewController.xib in Resources */,
 			);
@@ -271,6 +278,7 @@
 				092ACCF61CFD45C400F629A0 /* StoresManager.swift in Sources */,
 				09DC9DB91CFCA77300ECB869 /* SplashViewController.swift in Sources */,
 				092ACCF81CFD461600F629A0 /* Store.swift in Sources */,
+				09B7B5461CFE37AF0005E274 /* StoresViewController.swift in Sources */,
 				09DC9DE21CFCE60F00ECB869 /* UserStartupManager.swift in Sources */,
 				09DC9DE01CFCD67E00ECB869 /* ModelCacheOperation.swift in Sources */,
 				09DC9DA51CFCA5A300ECB869 /* AppDelegate.swift in Sources */,

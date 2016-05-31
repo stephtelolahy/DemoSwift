@@ -64,7 +64,8 @@ class SplashViewController: BaseViewController, StoresManagerDelegate, UserStart
 
         // move to home screen
         let homeViewController = HomeViewController()
-        self.window!.rootViewController = homeViewController
+        let navigationController = UINavigationController(rootViewController: homeViewController)
+        self.window!.rootViewController = navigationController
         self.window?.makeKeyAndVisible()
     }
 

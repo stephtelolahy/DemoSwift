@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Demo/ViewController/LoginViewController.swift"
-            timestampString = "486421988.205272"
+            timestampString = "486424321.103308"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "loginManager(_:didFailWithError:)"
             landmarkType = "5">
          </BreakpointContent>

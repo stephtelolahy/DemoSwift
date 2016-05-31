@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: BaseViewController, CategoriesManagerDelegate, UITableViewDataSource, UITableViewDelegate {
+class HomeViewController: BaseViewController, CategoriesManagerDelegate, UITableViewDataSource, UITableViewDelegate, UIPopoverPresentationControllerDelegate {
 
 
     // MARK: - Fields
@@ -21,8 +21,8 @@ class HomeViewController: BaseViewController, CategoriesManagerDelegate, UITable
 
     // MARK: - Outlet
 
-    @IBOutlet weak var titleBarButtonItem: UIBarButtonItem!
-    @IBOutlet weak var userBarButtonItem: UIBarButtonItem!
+//    @IBOutlet weak var titleBarButtonItem: UIBarButtonItem!
+//    @IBOutlet weak var userBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
 
 
@@ -33,17 +33,11 @@ class HomeViewController: BaseViewController, CategoriesManagerDelegate, UITable
 
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
 
-        self.titleBarButtonItem.title = AppConfig.availableStores![0].name
-        self.userBarButtonItem.title = AppConfig.currentUser!.username
+        self.title = AppConfig.currentStore().name
+//        self.userBarButtonItem.title = AppConfig.currentUser!.username
 
         self.tableView.dataSource = self
         self.tableView.delegate = self
-
-//        let cellNibCategorie = UINib(nibName: "CategorieTableViewCell", bundle: NSBundle.mainBundle())
-//        TableOutlet.registerNib(cellNibCategorie, forCellReuseIdentifier: CellIdentifierCategorie)
-//        self.TableOutlet.rowHeight = 65
-//        self.TableOutlet.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: self.TableOutlet.frame.width, height: 1))
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,6 +60,22 @@ class HomeViewController: BaseViewController, CategoriesManagerDelegate, UITable
 
     @IBAction func storesBarButtonItemAction(sender: AnyObject) {
 
+        let storesViewController = StoresViewController()
+
+        if UIDevice.currentDevice().userInterfaceIdiom == .Phone
+        {
+            self.navigationController!.pushViewController(storesViewController, animated: true)
+        }
+        else
+        {
+            storesViewController.modalPresentationStyle = .Popover
+            storesViewController.preferredContentSize = CGSizeMake(300,450)
+            let popoverMenuViewController = storesViewController.popoverPresentationController
+            popoverMenuViewController?.permittedArrowDirections = .Any
+            popoverMenuViewController?.delegate = self
+            storesViewController.popoverPresentationController?.barButtonItem = sender as? UIBarButtonItem
+            self.presentViewController(storesViewController, animated: true, completion: nil)
+        }
     }
 
     @IBAction func userBarButtonItemAction(sender: AnyObject) {
@@ -121,9 +131,6 @@ class HomeViewController: BaseViewController, CategoriesManagerDelegate, UITable
 
         let cell = UITableViewCell()
         cell.textLabel!.text = category.name
-
-//        let cell =  tableView.dequeueReusableCellWithIdentifier(CellIdentifierCategorie) as! CategorieTableViewCell
-//        cell.affecter(block!)
         return cell
     }
 
