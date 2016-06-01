@@ -24,6 +24,7 @@ class LoginManager: AnyObject, ModelNetworkOperationDelegate {
 
     private var networkOperation: ModelNetworkOperation?
 
+
     // MARK: - Methods
 
     func start(username:String, password:String) {
@@ -34,6 +35,7 @@ class LoginManager: AnyObject, ModelNetworkOperationDelegate {
         ModelNetworkOperation.sharedQueue.addOperation(networkOperation!)
     }
 
+    
     // MARK: - ModelNetworkOperationDelegate
 
     func modelNetworkOperation(operation: ModelNetworkOperation, didSucceedWithModel model: AnyObject) {

@@ -14,6 +14,7 @@ protocol UserStartupManagerDelegate {
     func userStartupManagerDidFail(manager: UserStartupManager, error: NSError)
 }
 
+
 class UserStartupManager: AnyObject, ModelCacheOperationDelegate, ModelNetworkOperationDelegate {
 
     // MARK: - Fields

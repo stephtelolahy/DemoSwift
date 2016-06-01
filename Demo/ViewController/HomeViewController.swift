@@ -53,7 +53,7 @@ class HomeViewController: BaseViewController, CategoriesManagerDelegate, UITable
 
     // MARK: - Action
 
-    @IBAction func storesBarButtonItemAction(sender: AnyObject) {
+    func storesBarButtonItemAction(sender: AnyObject) {
 
         let storesViewController = StoresViewController()
 
@@ -62,7 +62,7 @@ class HomeViewController: BaseViewController, CategoriesManagerDelegate, UITable
         self.navigationController!.pushViewController(storesViewController, animated: true)
     }
 
-    @IBAction func accountBarButtonItemAction(sender: AnyObject) {
+    func accountBarButtonItemAction(sender: AnyObject) {
 
         let alert = UIAlertController(title: "Account", message: "You are logged as \(AppConfig.currentUser!.username)", preferredStyle: UIAlertControllerStyle.Alert)
 

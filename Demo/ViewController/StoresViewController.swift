@@ -28,6 +28,7 @@ class StoresViewController: BaseViewController, UITableViewDataSource, UITableVi
 
     @IBOutlet weak var tableView: UITableView!
 
+    
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
@@ -44,6 +45,7 @@ class StoresViewController: BaseViewController, UITableViewDataSource, UITableVi
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
 
     // MARK: - UITableViewDataSource
 
