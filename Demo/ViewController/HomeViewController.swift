@@ -31,9 +31,9 @@ class HomeViewController: BaseViewController, CategoriesManagerDelegate, UITable
 
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
 
-        self.navigationItem.setLeftBarButtonItem(UIBarButtonItem(title: "Stores", style: UIBarButtonItemStyle.Plain, target: self, action: "storesBarButtonItemAction:"), animated: true)
+        self.navigationItem.setLeftBarButtonItem(UIBarButtonItem(title: "Stores", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(HomeViewController.storesBarButtonItemAction(_:))), animated: true)
 
-        self.navigationItem.setRightBarButtonItem(UIBarButtonItem(title: "Account", style: UIBarButtonItemStyle.Plain, target: self, action: "accountBarButtonItemAction:"), animated: true)
+        self.navigationItem.setRightBarButtonItem(UIBarButtonItem(title: "Account", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(HomeViewController.accountBarButtonItemAction(_:))), animated: true)
 
         self.tableView.dataSource = self
         self.tableView.delegate = self

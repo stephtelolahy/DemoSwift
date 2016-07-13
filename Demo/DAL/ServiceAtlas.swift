@@ -35,9 +35,6 @@ class ServiceAtlas: AnyObject {
         case .ServiceCategories:
             apiUrl = "/api/v1/categorie.json"
             break
-
-        default:
-            throw NSError(domain:"Unsupported service: \(service)", code:-1, userInfo:nil)
         }
 
         // concat API url with rootUrl
@@ -72,10 +69,6 @@ class ServiceAtlas: AnyObject {
             let storeId: Int = parameters![Category.KEY_CATEGORY_STORE_ID] as! Int
             let fileName = String(format: "categories-%d", storeId)
             return CacheUtil.makePathLink("commonData", fileName: fileName)
-
-        default:
-            // return nil if you don't want to cache model
-            return nil
         }
     }
 
@@ -90,9 +83,6 @@ class ServiceAtlas: AnyObject {
 
         case .ServiceCategories:
             return try Category.parseCategoriesFromJsonData(jsonData)
-
-        default:
-            throw NSError(domain:"Unsupported service: \(service)", code:-1, userInfo:nil)
         }
     }
 
