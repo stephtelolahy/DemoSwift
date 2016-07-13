@@ -73,6 +73,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0927BA801CFF3CC600A56E58 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		09DC9D981CFCA5A300ECB869 = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +99,7 @@
 		09DC9DA31CFCA5A300ECB869 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				0927BA801CFF3CC600A56E58 /* Views */,
 				09DC9DBB1CFCA79100ECB869 /* Application */,
 				09DC9DB61CFCA6D600ECB869 /* ViewController */,
 				09DC9DD11CFCC7AF00ECB869 /* Manager */,
