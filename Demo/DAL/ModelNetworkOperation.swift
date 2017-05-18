@@ -58,11 +58,12 @@ class ModelNetworkOperation: Operation {
 
         // check internet connection
 
-        if Reachability.isConnectedToNetwork() == false {
+        let status = Network.reachability?.status
+        if (status != nil && status == .unreachable) {
             sendFailureWithError(NSError(domain:"You seems not to be connected to Internet", code:-1, userInfo:nil))
             return
         }
-
+        
         // define Url
         
         var stringUrl:String

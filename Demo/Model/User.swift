@@ -44,11 +44,11 @@ class User: NSObject, NSCoding {
 
         let user = User()
 
-        if let username: AnyObject = jsonDictionary[User.KEY_USER_NAME] {
+        if let username = jsonDictionary[User.KEY_USER_NAME] {
             user.username = username as! String
         }
 
-        if let password: AnyObject = jsonDictionary[User.KEY_USER_PASSOWRD] {
+        if let password = jsonDictionary[User.KEY_USER_PASSOWRD] {
             user.password = password as! String
         }
 
