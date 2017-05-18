@@ -10,19 +10,19 @@ import UIKit
 
 protocol ModelNetworkOperationDelegate{
 
-    func modelNetworkOperation(operation: ModelNetworkOperation, didSucceedWithModel model:AnyObject)
+    func modelNetworkOperation(_ operation: ModelNetworkOperation, didSucceedWithModel model:AnyObject)
 
-    func modelNetworkOperation(operation: ModelNetworkOperation, didFailWithError error:NSError)
+    func modelNetworkOperation(_ operation: ModelNetworkOperation, didFailWithError error:NSError)
 }
 
-class ModelNetworkOperation: NSOperation {
+class ModelNetworkOperation: Operation {
 
 
     // MARK: - Shared queue
 
-    class var sharedQueue : NSOperationQueue {
+    class var sharedQueue : OperationQueue {
         struct Static {
-            static let instance : NSOperationQueue = NSOperationQueue()
+            static let instance : OperationQueue = OperationQueue()
         }
         Static.instance.maxConcurrentOperationCount = 1
         return Static.instance
@@ -33,8 +33,8 @@ class ModelNetworkOperation: NSOperation {
 
     var delegate: ModelNetworkOperationDelegate?
 
-    private var service: ServiceType
-    private var parameters: NSDictionary?
+    fileprivate var service: ServiceType
+    fileprivate var parameters: NSDictionary?
 
 
     // MARK: - Constructor
@@ -94,26 +94,26 @@ class ModelNetworkOperation: NSOperation {
 
         // send request
 
-        let request:NSMutableURLRequest = NSMutableURLRequest(URL: NSURL(string: stringUrl.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)!)
+        let request:NSMutableURLRequest = NSMutableURLRequest(url: URL(string: stringUrl.addingPercentEscapes(using: String.Encoding.utf8)!)!)
 
-        let uuid = UIDevice.currentDevice().identifierForVendor!.UUIDString
+        let uuid = UIDevice.current.identifierForVendor!.uuidString
         request.setValue(uuid, forHTTPHeaderField: "uuid")
 
-        NSURLProtocol.setProperty("multipart/form-data", forKey: "Content-Type", inRequest: request)
+        URLProtocol.setProperty("multipart/form-data", forKey: "Content-Type", in: request)
 
-        request.HTTPMethod = ServiceAtlas.methodForService(self.service);
+        request.httpMethod = ServiceAtlas.methodForService(self.service);
 
-        var response: NSURLResponse?
-        let data: NSData?
+        var response: URLResponse?
+        let data: Data?
         do {
-            data = try NSURLConnection.sendSynchronousRequest(request, returningResponse: &response)
+            data = try NSURLConnection.sendSynchronousRequest(request as URLRequest, returning: &response)
         } catch let error1 as NSError {
             sendFailureWithError(error1)
             return
         }
 
         // check response
-        if let httpResponse = response as? NSHTTPURLResponse {
+        if let httpResponse = response as? HTTPURLResponse {
             if httpResponse.statusCode < 200 || httpResponse.statusCode >= 400 {
                 sendFailureWithError(NSError(domain:"Invalid status code", code:httpResponse.statusCode, userInfo:nil))
                 return
@@ -142,14 +142,14 @@ class ModelNetworkOperation: NSOperation {
 
     // MARK: - Delegate call
 
-    private func sendSuccessWithModel(model: AnyObject) {
-        dispatch_sync(dispatch_get_main_queue(), {
+    fileprivate func sendSuccessWithModel(_ model: AnyObject) {
+        DispatchQueue.main.sync(execute: {
             self.delegate?.modelNetworkOperation(self, didSucceedWithModel: model)
         })
     }
 
-    private func sendFailureWithError(error: NSError) {
-        dispatch_sync(dispatch_get_main_queue(), {
+    fileprivate func sendFailureWithError(_ error: NSError) {
+        DispatchQueue.main.sync(execute: {
             self.delegate?.modelNetworkOperation(self, didFailWithError: error)
         })
     }

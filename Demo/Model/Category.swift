@@ -31,22 +31,22 @@ class Category: NSObject, NSCoding {
     required convenience init?(coder decoder: NSCoder) {
         self.init()
 
-        self.id = decoder.decodeObjectForKey(Category.KEY_CATEGORY_ID) as! Int
-        self.name = decoder.decodeObjectForKey(Category.KEY_CATEGORY_NAME) as! String
-        self.thumbsUrl = decoder.decodeObjectForKey(Category.KEY_CATEGORY_THUMBS_URL) as! String
+        self.id = decoder.decodeObject(forKey: Category.KEY_CATEGORY_ID) as! Int
+        self.name = decoder.decodeObject(forKey: Category.KEY_CATEGORY_NAME) as! String
+        self.thumbsUrl = decoder.decodeObject(forKey: Category.KEY_CATEGORY_THUMBS_URL) as! String
     }
 
-    func encodeWithCoder(coder: NSCoder) {
+    func encode(with coder: NSCoder) {
 
-        coder.encodeObject(self.id, forKey: Category.KEY_CATEGORY_ID)
-        coder.encodeObject(self.name, forKey: Category.KEY_CATEGORY_NAME)
-        coder.encodeObject(self.thumbsUrl, forKey: Category.KEY_CATEGORY_THUMBS_URL)
+        coder.encode(self.id, forKey: Category.KEY_CATEGORY_ID)
+        coder.encode(self.name, forKey: Category.KEY_CATEGORY_NAME)
+        coder.encode(self.thumbsUrl, forKey: Category.KEY_CATEGORY_THUMBS_URL)
     }
 
 
     // MARK: - JSON Parsing
 
-    static func parseCategoryFromJsonDictionary(jsonDictionary: NSDictionary) throws -> Category {
+    static func parseCategoryFromJsonDictionary(_ jsonDictionary: NSDictionary) throws -> Category {
 
         let category = Category()
 
@@ -65,9 +65,9 @@ class Category: NSObject, NSCoding {
         return category
     }
 
-    static func parseCategoriesFromJsonData(jsonData: NSData) throws -> Array<Category> {
+    static func parseCategoriesFromJsonData(_ jsonData: Data) throws -> Array<Category> {
 
-        let jsonArray = (try! NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers)) as! NSArray
+        let jsonArray = (try! JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.mutableContainers)) as! NSArray
 
         var categories = Array<Category>()
 

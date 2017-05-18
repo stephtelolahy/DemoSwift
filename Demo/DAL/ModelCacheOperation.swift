@@ -10,18 +10,18 @@ import UIKit
 
 protocol ModelCacheOperationDelegate {
 
-    func modelCacheOperation(operation: ModelCacheOperation, didSucceedWithModel model:AnyObject)
+    func modelCacheOperation(_ operation: ModelCacheOperation, didSucceedWithModel model:AnyObject)
 
-    func modelCacheOperation(operation: ModelCacheOperation, didFailWithError error:NSError)
+    func modelCacheOperation(_ operation: ModelCacheOperation, didFailWithError error:NSError)
 }
 
-class ModelCacheOperation: NSOperation {
+class ModelCacheOperation: Operation {
 
     // MARK: - Shared queue
 
-    class var sharedQueue : NSOperationQueue {
+    class var sharedQueue : OperationQueue {
         struct Static {
-            static let instance : NSOperationQueue = NSOperationQueue()
+            static let instance : OperationQueue = OperationQueue()
         }
         Static.instance.maxConcurrentOperationCount = 1
         return Static.instance
@@ -32,8 +32,8 @@ class ModelCacheOperation: NSOperation {
 
     var delegate: ModelCacheOperationDelegate?
 
-    private var service: ServiceType
-    private var parameters: NSDictionary?
+    fileprivate var service: ServiceType
+    fileprivate var parameters: NSDictionary?
 
 
     // MARK: - Constructor
@@ -74,14 +74,14 @@ class ModelCacheOperation: NSOperation {
 
     // MARK: - Delegate call
 
-    private func sendSuccessWithModel(model: AnyObject) {
-        dispatch_sync(dispatch_get_main_queue(), {
+    fileprivate func sendSuccessWithModel(_ model: AnyObject) {
+        DispatchQueue.main.sync(execute: {
             self.delegate?.modelCacheOperation(self, didSucceedWithModel: model)
         })
     }
 
-    private func sendFailureWithError(error: NSError) {
-        dispatch_sync(dispatch_get_main_queue(), {
+    fileprivate func sendFailureWithError(_ error: NSError) {
+        DispatchQueue.main.sync(execute: {
             self.delegate?.modelCacheOperation(self, didFailWithError: error)
         })
     }

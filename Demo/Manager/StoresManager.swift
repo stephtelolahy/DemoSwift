@@ -10,9 +10,9 @@ import UIKit
 
 protocol StoresManagerDelegate {
 
-    func storesManager(manager: StoresManager, didSucceedWithStores stores:Array<Store>)
+    func storesManager(_ manager: StoresManager, didSucceedWithStores stores:Array<Store>)
 
-    func storesManager(manager: StoresManager, didFailWithError error:NSError)
+    func storesManager(_ manager: StoresManager, didFailWithError error:NSError)
 }
 
 class StoresManager: AnyObject, ModelNetworkOperationDelegate, ModelCacheOperationDelegate {
@@ -22,17 +22,17 @@ class StoresManager: AnyObject, ModelNetworkOperationDelegate, ModelCacheOperati
 
     var delegate: StoresManagerDelegate?
 
-    private var networkOperation: ModelNetworkOperation?
-    private var cacheOperation: ModelCacheOperation?
+    fileprivate var networkOperation: ModelNetworkOperation?
+    fileprivate var cacheOperation: ModelCacheOperation?
     
-    private var networkError: NSError?
+    fileprivate var networkError: NSError?
 
 
     // MARK: - Public
 
     func start() {
 
-        networkOperation = ModelNetworkOperation(service: .ServiceStores, parameters: nil)
+        networkOperation = ModelNetworkOperation(service: .serviceStores, parameters: nil)
         networkOperation?.delegate = self
         ModelNetworkOperation.sharedQueue.addOperation(networkOperation!)
     }
@@ -40,17 +40,17 @@ class StoresManager: AnyObject, ModelNetworkOperationDelegate, ModelCacheOperati
 
     // MARK: - ModelNetworkOperationDelegate
 
-    func modelNetworkOperation(operation: ModelNetworkOperation, didSucceedWithModel model: AnyObject) {
+    func modelNetworkOperation(_ operation: ModelNetworkOperation, didSucceedWithModel model: AnyObject) {
 
         let stores = model as! Array<Store>
         self.delegate?.storesManager(self, didSucceedWithStores: stores)
     }
 
-    func modelNetworkOperation(operation: ModelNetworkOperation, didFailWithError error: NSError) {
+    func modelNetworkOperation(_ operation: ModelNetworkOperation, didFailWithError error: NSError) {
 
         self.networkError = error
 
-        cacheOperation = ModelCacheOperation(service: .ServiceStores, parameters:nil)
+        cacheOperation = ModelCacheOperation(service: .serviceStores, parameters:nil)
         cacheOperation?.delegate = self
         ModelCacheOperation.sharedQueue.addOperation(cacheOperation!)
     }
@@ -58,13 +58,13 @@ class StoresManager: AnyObject, ModelNetworkOperationDelegate, ModelCacheOperati
 
     // MARK: - ModelCacheOperationDelegate
 
-    func modelCacheOperation(operation: ModelCacheOperation, didSucceedWithModel model: AnyObject) {
+    func modelCacheOperation(_ operation: ModelCacheOperation, didSucceedWithModel model: AnyObject) {
 
         let stores = model as! Array<Store>
         self.delegate?.storesManager(self, didSucceedWithStores: stores)
     }
 
-    func modelCacheOperation(operation: ModelCacheOperation, didFailWithError error: NSError) {
+    func modelCacheOperation(_ operation: ModelCacheOperation, didFailWithError error: NSError) {
 
         self.delegate?.storesManager(self, didFailWithError: self.networkError!)
     }

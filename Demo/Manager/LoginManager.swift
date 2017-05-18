@@ -10,9 +10,9 @@ import UIKit
 
 protocol LoginManagerDelegate {
 
-    func loginManager(manager: LoginManager, didSucceedWithUser user:User)
+    func loginManager(_ manager: LoginManager, didSucceedWithUser user:User)
 
-    func loginManager(manager: LoginManager, didFailWithError error:NSError)
+    func loginManager(_ manager: LoginManager, didFailWithError error:NSError)
 }
 
 class LoginManager: AnyObject, ModelNetworkOperationDelegate {
@@ -22,15 +22,15 @@ class LoginManager: AnyObject, ModelNetworkOperationDelegate {
 
     var delegate: LoginManagerDelegate?
 
-    private var networkOperation: ModelNetworkOperation?
+    fileprivate var networkOperation: ModelNetworkOperation?
 
 
     // MARK: - Methods
 
-    func start(username:String, password:String) {
+    func start(_ username:String, password:String) {
 
         let parameters:NSDictionary = [User.KEY_USER_NAME : username, User.KEY_USER_PASSOWRD : password]
-        networkOperation = ModelNetworkOperation(service: .ServiceUser,parameters: parameters)
+        networkOperation = ModelNetworkOperation(service: .serviceUser,parameters: parameters)
         networkOperation?.delegate = self
         ModelNetworkOperation.sharedQueue.addOperation(networkOperation!)
     }
@@ -38,13 +38,13 @@ class LoginManager: AnyObject, ModelNetworkOperationDelegate {
     
     // MARK: - ModelNetworkOperationDelegate
 
-    func modelNetworkOperation(operation: ModelNetworkOperation, didSucceedWithModel model: AnyObject) {
+    func modelNetworkOperation(_ operation: ModelNetworkOperation, didSucceedWithModel model: AnyObject) {
 
         let user = model as! User
         self.delegate?.loginManager(self, didSucceedWithUser: user)
     }
 
-    func modelNetworkOperation(operation: ModelNetworkOperation, didFailWithError error: NSError) {
+    func modelNetworkOperation(_ operation: ModelNetworkOperation, didFailWithError error: NSError) {
 
         self.delegate?.loginManager(self, didFailWithError: error)
     }

@@ -22,7 +22,7 @@ class SplashViewController: BaseViewController, StoresManagerDelegate, UserStart
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window = UIWindow(frame: UIScreen.main.bounds)
 
         // fetch stores
         storesManager = StoresManager()
@@ -38,7 +38,7 @@ class SplashViewController: BaseViewController, StoresManagerDelegate, UserStart
 
     // MARK: - StoresManagerDelegate
 
-    func storesManager(manager: StoresManager, didSucceedWithStores stores: Array<Store>) {
+    func storesManager(_ manager: StoresManager, didSucceedWithStores stores: Array<Store>) {
 
         // save available stores
         AppConfig.availableStores = stores
@@ -50,7 +50,7 @@ class SplashViewController: BaseViewController, StoresManagerDelegate, UserStart
         userStartupManager?.start()
     }
 
-    func storesManager(manager: StoresManager, didFailWithError error: NSError) {
+    func storesManager(_ manager: StoresManager, didFailWithError error: NSError) {
 
         showError(error.description)
     }
@@ -58,7 +58,7 @@ class SplashViewController: BaseViewController, StoresManagerDelegate, UserStart
 
     // MARK: - UserStartupManagerDelegate
 
-    func userStartupManagerDidSucceed(manager: UserStartupManager, user: User) {
+    func userStartupManagerDidSucceed(_ manager: UserStartupManager, user: User) {
 
         // save current user
         AppConfig.currentUser = user
@@ -70,7 +70,7 @@ class SplashViewController: BaseViewController, StoresManagerDelegate, UserStart
         self.window?.makeKeyAndVisible()
     }
 
-    func userStartupManagerDidFail(manager: UserStartupManager, error: NSError) {
+    func userStartupManagerDidFail(_ manager: UserStartupManager, error: NSError) {
 
         // move to login screen
         let loginViewController = LoginViewController()

@@ -29,7 +29,7 @@ class LoginViewController: BaseViewController, LoginManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window = UIWindow(frame: UIScreen.main.bounds)
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,7 +40,7 @@ class LoginViewController: BaseViewController, LoginManagerDelegate {
 
     // MARK: - Action
 
-    @IBAction func validateButtonTouchUpInside(sender: AnyObject) {
+    @IBAction func validateButtonTouchUpInside(_ sender: AnyObject) {
 
         loginManager = LoginManager()
         loginManager!.delegate = self
@@ -52,7 +52,7 @@ class LoginViewController: BaseViewController, LoginManagerDelegate {
 
     // MARK: - LoginManagerDelegate
 
-    func loginManager(manager: LoginManager, didSucceedWithUser user: User) {
+    func loginManager(_ manager: LoginManager, didSucceedWithUser user: User) {
 
         self.hideLoadingView()
 
@@ -66,7 +66,7 @@ class LoginViewController: BaseViewController, LoginManagerDelegate {
         self.window?.makeKeyAndVisible()
     }
 
-    func loginManager(manager: LoginManager, didFailWithError error: NSError) {
+    func loginManager(_ manager: LoginManager, didFailWithError error: NSError) {
 
         self.hideLoadingView()
 

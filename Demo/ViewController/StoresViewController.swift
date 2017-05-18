@@ -11,7 +11,7 @@ import UIKit
 
 protocol StoresViewControllerDelegate {
 
-    func storesViewController(viewController: StoresViewController, didSelectStore:Store)
+    func storesViewController(_ viewController: StoresViewController, didSelectStore:Store)
 }
 
 
@@ -49,12 +49,12 @@ class StoresViewController: BaseViewController, UITableViewDataSource, UITableVi
 
     // MARK: - UITableViewDataSource
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         return AppConfig.availableStores!.count
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let position = indexPath.item
         let store = AppConfig.availableStores![position]
@@ -67,7 +67,7 @@ class StoresViewController: BaseViewController, UITableViewDataSource, UITableVi
 
     // MARK:- UITableViewDelegate
 
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         self.delegate?.storesViewController(self, didSelectStore: AppConfig.availableStores![indexPath.item])
     }

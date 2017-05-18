@@ -10,8 +10,8 @@ import UIKit
 
 protocol UserStartupManagerDelegate {
 
-    func userStartupManagerDidSucceed(manager: UserStartupManager, user: User)
-    func userStartupManagerDidFail(manager: UserStartupManager, error: NSError)
+    func userStartupManagerDidSucceed(_ manager: UserStartupManager, user: User)
+    func userStartupManagerDidFail(_ manager: UserStartupManager, error: NSError)
 }
 
 
@@ -21,17 +21,17 @@ class UserStartupManager: AnyObject, ModelCacheOperationDelegate, ModelNetworkOp
 
     var delegate: UserStartupManagerDelegate?
 
-    private var cacheOperation: ModelCacheOperation?
-    private var networkOperation: ModelNetworkOperation?
+    fileprivate var cacheOperation: ModelCacheOperation?
+    fileprivate var networkOperation: ModelNetworkOperation?
     
-    private var cachedUser:User?
+    fileprivate var cachedUser:User?
 
 
     // MARK: - Public
 
     func start() {
 
-        cacheOperation = ModelCacheOperation(service: .ServiceUser, parameters:nil)
+        cacheOperation = ModelCacheOperation(service: .serviceUser, parameters:nil)
         cacheOperation?.delegate = self
         ModelCacheOperation.sharedQueue.addOperation(cacheOperation!)
     }
@@ -39,17 +39,17 @@ class UserStartupManager: AnyObject, ModelCacheOperationDelegate, ModelNetworkOp
 
     // MARK: - ModelCacheOperationDelegate
 
-    func modelCacheOperation(operation: ModelCacheOperation, didSucceedWithModel model: AnyObject) {
+    func modelCacheOperation(_ operation: ModelCacheOperation, didSucceedWithModel model: AnyObject) {
 
         self.cachedUser = model as? User
 
         let parameters:NSDictionary = [User.KEY_USER_NAME : self.cachedUser!.username, User.KEY_USER_PASSOWRD : self.cachedUser!.password]
-        networkOperation = ModelNetworkOperation(service: .ServiceUser,parameters: parameters)
+        networkOperation = ModelNetworkOperation(service: .serviceUser,parameters: parameters)
         networkOperation?.delegate = self
         ModelNetworkOperation.sharedQueue.addOperation(networkOperation!)
     }
 
-    func modelCacheOperation(operation: ModelCacheOperation, didFailWithError error: NSError) {
+    func modelCacheOperation(_ operation: ModelCacheOperation, didFailWithError error: NSError) {
 
         self.delegate?.userStartupManagerDidFail(self, error: error)
     }
@@ -57,13 +57,13 @@ class UserStartupManager: AnyObject, ModelCacheOperationDelegate, ModelNetworkOp
 
     // MARK - ModelNetworkOperationDelegate
 
-    func modelNetworkOperation(operation: ModelNetworkOperation, didSucceedWithModel model: AnyObject) {
+    func modelNetworkOperation(_ operation: ModelNetworkOperation, didSucceedWithModel model: AnyObject) {
 
         let user = model as! User
         self.delegate?.userStartupManagerDidSucceed(self, user:user)
     }
 
-    func modelNetworkOperation(operation: ModelNetworkOperation, didFailWithError error: NSError) {
+    func modelNetworkOperation(_ operation: ModelNetworkOperation, didFailWithError error: NSError) {
 
         // Call no startup user
         self.delegate?.userStartupManagerDidFail(self, error: error)

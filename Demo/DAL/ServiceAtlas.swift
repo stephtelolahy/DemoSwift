@@ -11,28 +11,28 @@ import UIKit
 
 enum ServiceType {
 
-    case ServiceUser
-    case ServiceStores
-    case ServiceCategories
+    case serviceUser
+    case serviceStores
+    case serviceCategories
 }
 
 class ServiceAtlas: AnyObject {
 
-    static func urlForService(service: ServiceType) throws -> String? {
+    static func urlForService(_ service: ServiceType) throws -> String? {
 
         var apiUrl: String
 
         switch service {
 
-        case .ServiceUser:
+        case .serviceUser:
             apiUrl = "/api/v1/compte/1/login.json"
             break
 
-        case .ServiceStores:
+        case .serviceStores:
             apiUrl = "/api/v1/store.json"
             break
 
-        case .ServiceCategories:
+        case .serviceCategories:
             apiUrl = "/api/v1/categorie.json"
             break
         }
@@ -43,7 +43,7 @@ class ServiceAtlas: AnyObject {
         return serviceUrl
     }
 
-    static func methodForService(service: ServiceType)->String {
+    static func methodForService(_ service: ServiceType)->String {
         var apiMethod: String
 
         switch service {
@@ -55,34 +55,34 @@ class ServiceAtlas: AnyObject {
         return apiMethod;
     }
 
-    static func cachePathForService(service: ServiceType, parameters : NSDictionary?) -> String? {
+    static func cachePathForService(_ service: ServiceType, parameters : NSDictionary?) -> String? {
 
         switch service {
 
-        case .ServiceUser:
+        case .serviceUser:
             return CacheUtil.makePathLink("userData", fileName: "user")
 
-        case .ServiceStores:
+        case .serviceStores:
             return CacheUtil.makePathLink("commonData", fileName: "stores")
 
-        case .ServiceCategories:
+        case .serviceCategories:
             let storeId: Int = parameters![Category.KEY_CATEGORY_STORE_ID] as! Int
             let fileName = String(format: "categories-%d", storeId)
             return CacheUtil.makePathLink("commonData", fileName: fileName)
         }
     }
 
-    static func parseModelForService(service: ServiceType, jsonData:NSData) throws -> AnyObject {
+    static func parseModelForService(_ service: ServiceType, jsonData:Data) throws -> AnyObject {
         switch service {
 
-        case .ServiceUser:
+        case .serviceUser:
             return try User.parseUserFromJsonData(jsonData)
 
-        case .ServiceStores:
-            return try Store.parseStoresFromJsonData(jsonData)
+        case .serviceStores:
+            return try Store.parseStoresFromJsonData(jsonData) as AnyObject
 
-        case .ServiceCategories:
-            return try Category.parseCategoriesFromJsonData(jsonData)
+        case .serviceCategories:
+            return try Category.parseCategoriesFromJsonData(jsonData) as AnyObject
         }
     }
 

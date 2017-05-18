@@ -27,21 +27,21 @@ class Store: NSObject, NSCoding {
     required convenience init?(coder decoder: NSCoder) {
         self.init()
 
-        self.id = decoder.decodeObjectForKey(Store.KEY_STORE_ID) as! Int
-        self.name = decoder.decodeObjectForKey(Store.KEY_STORE_NAME) as! String
-        self.flagUrl = decoder.decodeObjectForKey(Store.KEY_STORE_FLAG_URL) as! String
+        self.id = decoder.decodeObject(forKey: Store.KEY_STORE_ID) as! Int
+        self.name = decoder.decodeObject(forKey: Store.KEY_STORE_NAME) as! String
+        self.flagUrl = decoder.decodeObject(forKey: Store.KEY_STORE_FLAG_URL) as! String
     }
 
-    func encodeWithCoder(coder: NSCoder) {
+    func encode(with coder: NSCoder) {
 
-        coder.encodeObject(self.id, forKey: Store.KEY_STORE_ID)
-        coder.encodeObject(self.name, forKey: Store.KEY_STORE_NAME)
-        coder.encodeObject(self.flagUrl, forKey: Store.KEY_STORE_FLAG_URL)
+        coder.encode(self.id, forKey: Store.KEY_STORE_ID)
+        coder.encode(self.name, forKey: Store.KEY_STORE_NAME)
+        coder.encode(self.flagUrl, forKey: Store.KEY_STORE_FLAG_URL)
     }
 
     // MARK: - JSON Parsing
 
-    static func parseStoreFromJsonDictionary(jsonDictionary: NSDictionary) throws -> Store {
+    static func parseStoreFromJsonDictionary(_ jsonDictionary: NSDictionary) throws -> Store {
 
         let store = Store()
 
@@ -60,9 +60,9 @@ class Store: NSObject, NSCoding {
         return store
     }
 
-    static func parseStoresFromJsonData(jsonData: NSData) throws -> Array<Store> {
+    static func parseStoresFromJsonData(_ jsonData: Data) throws -> Array<Store> {
 
-        let jsonArray = (try! NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers)) as! NSArray
+        let jsonArray = (try! JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.mutableContainers)) as! NSArray
 
         var stores = Array<Store>()
 

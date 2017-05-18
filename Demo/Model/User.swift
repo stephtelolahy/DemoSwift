@@ -26,21 +26,21 @@ class User: NSObject, NSCoding {
     required convenience init?(coder decoder: NSCoder) {
         self.init()
 
-        self.username = decoder.decodeObjectForKey(User.KEY_USER_NAME) as! String
-        self.password = decoder.decodeObjectForKey(User.KEY_USER_PASSOWRD) as! String
+        self.username = decoder.decodeObject(forKey: User.KEY_USER_NAME) as! String
+        self.password = decoder.decodeObject(forKey: User.KEY_USER_PASSOWRD) as! String
     }
 
-    func encodeWithCoder(coder: NSCoder) {
+    func encode(with coder: NSCoder) {
 
-        coder.encodeObject(self.username, forKey: User.KEY_USER_NAME)
-        coder.encodeObject(self.password, forKey: User.KEY_USER_PASSOWRD)
+        coder.encode(self.username, forKey: User.KEY_USER_NAME)
+        coder.encode(self.password, forKey: User.KEY_USER_PASSOWRD)
     }
 
     // MARK: - JSON Parsing
 
-    static func parseUserFromJsonData(jsonData: NSData) throws -> User {
+    static func parseUserFromJsonData(_ jsonData: Data) throws -> User {
 
-        let jsonDictionary = (try! NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers)) as! NSDictionary
+        let jsonDictionary = (try! JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.mutableContainers)) as! NSDictionary
 
         let user = User()
 

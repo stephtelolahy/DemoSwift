@@ -29,11 +29,11 @@ class HomeViewController: BaseViewController, CategoriesManagerDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window = UIWindow(frame: UIScreen.main.bounds)
 
-        self.navigationItem.setLeftBarButtonItem(UIBarButtonItem(title: "Stores", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(HomeViewController.storesBarButtonItemAction(_:))), animated: true)
+        self.navigationItem.setLeftBarButton(UIBarButtonItem(title: "Stores", style: UIBarButtonItemStyle.plain, target: self, action: #selector(HomeViewController.storesBarButtonItemAction(_:))), animated: true)
 
-        self.navigationItem.setRightBarButtonItem(UIBarButtonItem(title: "Account", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(HomeViewController.accountBarButtonItemAction(_:))), animated: true)
+        self.navigationItem.setRightBarButton(UIBarButtonItem(title: "Account", style: UIBarButtonItemStyle.plain, target: self, action: #selector(HomeViewController.accountBarButtonItemAction(_:))), animated: true)
 
         self.tableView.dataSource = self
         self.tableView.delegate = self
@@ -44,7 +44,7 @@ class HomeViewController: BaseViewController, CategoriesManagerDelegate, UITable
         // Dispose of any resources that can be recreated.
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         reload()
@@ -53,7 +53,7 @@ class HomeViewController: BaseViewController, CategoriesManagerDelegate, UITable
 
     // MARK: - Action
 
-    func storesBarButtonItemAction(sender: AnyObject) {
+    func storesBarButtonItemAction(_ sender: AnyObject) {
 
         let storesViewController = StoresViewController()
 
@@ -62,25 +62,25 @@ class HomeViewController: BaseViewController, CategoriesManagerDelegate, UITable
         self.navigationController!.pushViewController(storesViewController, animated: true)
     }
 
-    func accountBarButtonItemAction(sender: AnyObject) {
+    func accountBarButtonItemAction(_ sender: AnyObject) {
 
-        let alert = UIAlertController(title: "Account", message: "You are logged as \(AppConfig.currentUser!.username)", preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: "Account", message: "You are logged as \(AppConfig.currentUser!.username)", preferredStyle: UIAlertControllerStyle.alert)
 
-        alert.addAction(UIAlertAction(title: "Logout", style: .Default, handler: { (action: UIAlertAction!) in
+        alert.addAction(UIAlertAction(title: "Logout", style: .default, handler: { (action: UIAlertAction!) in
             self.logout()
 
         }))
 
-        alert.addAction(UIAlertAction(title: "Dissmiss", style: .Cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Dissmiss", style: .cancel, handler: nil))
 
-        presentViewController(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
 
     }
 
 
     // MARK: - CategoriesManagerDelegate
 
-    func categoriesManager(manager: CategoriesManager, didSucceedWithCategories categories: Array<Category>) {
+    func categoriesManager(_ manager: CategoriesManager, didSucceedWithCategories categories: Array<Category>) {
 
         hideLoadingView()
 
@@ -89,7 +89,7 @@ class HomeViewController: BaseViewController, CategoriesManagerDelegate, UITable
 
     }
 
-    func categoriesManager(manager: CategoriesManager, didFailWithError error: NSError) {
+    func categoriesManager(_ manager: CategoriesManager, didFailWithError error: NSError) {
 
         hideLoadingView()
 
@@ -99,7 +99,7 @@ class HomeViewController: BaseViewController, CategoriesManagerDelegate, UITable
 
     // MARK: - UITableViewDataSource
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         if self.categories == nil {
             return 0;
@@ -108,7 +108,7 @@ class HomeViewController: BaseViewController, CategoriesManagerDelegate, UITable
         }
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let position = indexPath.item
         let category = self.categories![position]
@@ -121,7 +121,7 @@ class HomeViewController: BaseViewController, CategoriesManagerDelegate, UITable
 
     // MARK: - UITableViewDelegate
 
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         print("select item at index \(indexPath.item)")
     }
@@ -129,24 +129,24 @@ class HomeViewController: BaseViewController, CategoriesManagerDelegate, UITable
 
     // MARK: - StoresViewControllerDelegate
 
-    func storesViewController(viewController: StoresViewController, didSelectStore: Store) {
+    func storesViewController(_ viewController: StoresViewController, didSelectStore: Store) {
 
         AppConfig.currentStore = didSelectStore
 
         reload()
 
-        self.navigationController?.popViewControllerAnimated(true)
+        self.navigationController?.popViewController(animated: true)
     }
 
 
     // MARK: - Private
 
-    private func logout() {
+    fileprivate func logout() {
 
         // drop current user
         AppConfig.currentUser = nil
 
-        let userFilePath = ServiceAtlas.cachePathForService(.ServiceUser, parameters: nil)
+        let userFilePath = ServiceAtlas.cachePathForService(.serviceUser, parameters: nil)
         CacheUtil.deleteFile(userFilePath!)
 
         // move to login screen
@@ -155,7 +155,7 @@ class HomeViewController: BaseViewController, CategoriesManagerDelegate, UITable
         self.window?.makeKeyAndVisible()
     }
 
-    private func reload() {
+    fileprivate func reload() {
 
         self.title = AppConfig.currentStore!.name
 
